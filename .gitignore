@@ -8,7 +8,7 @@
 !/THIRD-PARTY-NOTICES.md
 !/releases/
 !/packages/
-!/webpages/
+!/docs/
 !/flasher/
 
 # Binary release payloads are staged locally and uploaded as Release assets.

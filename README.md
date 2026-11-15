@@ -66,7 +66,7 @@ development sources and their Git history remain in a separate local repository.
 | --- | --- |
 | [releases/](releases/README.md) | Release notes and, when ready, selected OS images, update bundles, manifests and checksums |
 | [packages/](packages/README.md) | Future Windows, Linux and macOS installer packages |
-| [webpages/](webpages/README.md) | Future built static GitHub Pages site and browser flasher assets |
+| [docs/](docs/README.md) | GitHub Pages content and future browser flasher assets; publish from `main` / `/docs` |
 | [flasher/](flasher/README.md) | Future portable flasher deliverables and public usage documentation |
 
 Large binary payloads are ignored by Git here and belong in GitHub Releases,

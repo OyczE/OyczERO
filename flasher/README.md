@@ -2,7 +2,7 @@
 
 Use this directory for exported portable flasher deliverables and public
 instructions. Native installer packages belong in `packages/`; the deployed
-browser application belongs in `webpages/`.
+browser application belongs in `docs/` (GitHub Pages source: `main` / `/docs`).
 
 The updater's TypeScript/Rust development source, tests and implementation
 plans stay outside this distribution workspace. Publishing flasher source

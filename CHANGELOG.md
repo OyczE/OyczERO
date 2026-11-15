@@ -9,6 +9,8 @@ Earlier milestones are summarized from their local commit records.
 
 ### Added
 
+- GitHub Pages content under `docs/`, configured for branch `main` / `/docs`.
+  This replaces the original `webpages/` staging directory.
 - A distribution workspace for release material, installer packages, built
   web pages and flasher deliverables, separate from the full development source.
 - A project README, this changelog and notes for the latest clean local build.
