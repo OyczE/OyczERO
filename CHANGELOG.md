@@ -1,5 +1,22 @@
 # OyczERO changelog
 
+## 2026-11-16 - OyczERO 0001 (first stable release)
+
+- Release [`v0001`](https://github.com/OyczE/OyczERO/releases/tag/v0001), build
+  `20261116T222503Z-gcccb27546516`. Install on a running OyczERO system with
+  `oyczero update install latest`; settings and files are kept.
+- Releases are now numbered. `oyczero version` shows the number and the build.
+- Update channels: `stable` (default) installs numbered releases only;
+  `oyczero update channel dev` also installs development pre-releases.
+- Safer updates: if the new system hangs or does not confirm a healthy start
+  within 3 minutes, the device restarts into the previous system by itself;
+  a failed health check restarts it at once; an update interrupted right after
+  it was committed is recognised and finished on the next start.
+- Known issue: in one of seven test updates the device stopped during the
+  restart into the new system and needed a power cycle; it then started the
+  previous system and the retry succeeded. A fix is planned for 0002.
+
+
 ## 2026-11-16 - Over-the-air A/B updates (development channel)
 
 - New `oyczero update check|install latest|status`: downloads a signed update

@@ -55,7 +55,7 @@ The images are local staging files ignored by Git. Upload them as Release
 attachments when publication is authorized; commit only the reviewed metadata
 and documentation. Preserve the original build ID, including `-dirty`.
 
-## Update packages (development channel)
+## Update packages
 
 Systems from build `20261116T184024Z-gfce776c6ce74` onwards can update
 themselves without erasing settings or files:
@@ -71,5 +71,20 @@ pre-releases named `update-BUILD`. Each package is signed; the device rejects
 modified or foreign packages. The update is written to the inactive system
 slot and tried once; it becomes the default only after a successful start,
 otherwise the previous system keeps running. Older images without the updater
-need one fresh installation first. These are development builds; version
-numbering (0001) starts with the first stable update channel.
+need one fresh installation first.
+
+Channels:
+
+| Channel | What it installs | GitHub release |
+|---|---|---|
+| `stable` (default) | numbered releases: 0001, 0002, ... | `v0001`, marked Latest |
+| `dev` | every published package, including development builds | pre-release `update-BUILD` |
+
+```
+oyczero update channel          # show the channel
+oyczero update channel dev      # also install development builds
+oyczero update channel stable   # back to numbered releases only
+```
+
+If the updated system hangs or does not confirm a healthy start within three
+minutes, the device restarts into the previous system on its own.
