@@ -1,0 +1,29 @@
+{
+  "build": {
+    "schema": 1,
+    "build_id": "20261115T215239Z-gbbdc8f6a0c1e",
+    "built_at_utc": "2026-11-15T21:52:39Z",
+    "git_commit": "bbdc8f6a0c1eea52fd13d2da7d7a0111c29b2d88",
+    "dirty": false
+  },
+  "artifacts": [
+    {
+      "file": "oyczero-20261115T215239Z-gbbdc8f6a0c1e-host.img",
+      "size": 208666624,
+      "sha256": "5b30044d670d7a737355af2cc4b714c153205651c9830d32f9a026982bcedcce",
+      "profile": "usb-host"
+    },
+    {
+      "file": "oyczero-20261115T215239Z-gbbdc8f6a0c1e-adb.img",
+      "size": 208666624,
+      "sha256": "ec2c6e7e975a492a32fd333bd80a02b99f64bc32dc0c1ad7b5e62d7edd9bf7cf",
+      "profile": "usb-peripheral-adb"
+    },
+    {
+      "file": "kernel.config",
+      "size": 255686,
+      "sha256": "a1d4338105d98f68c67f90d472232d2c43282b95bcd5e71184dabbea4e6dc94c",
+      "profile": null
+    }
+  ]
+}

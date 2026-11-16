@@ -16,3 +16,8 @@ assets; they are not copied into the Pages deployment.
 
 This README is the current placeholder entry page. No browser flasher or
 installer interface has been exported here yet.
+
+Current staged build: `20261116T173028Z-g2c142df3759d`.
+See the [release notes](../releases/20261116T173028Z-g2c142df3759d/RELEASE-NOTES.md)
+and [installation guide](../releases/INSTALL.md). The package is staged locally;
+these links describe it but do not provide a published image download.

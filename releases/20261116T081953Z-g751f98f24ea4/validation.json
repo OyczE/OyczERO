@@ -1,0 +1,31 @@
+{
+  "source_clean": true,
+  "stage3_passed": 684,
+  "later_stage_deselected": 27,
+  "installer_integrations_passed": 2,
+  "arm64_userspace_tested": true,
+  "full_system_emulation": false,
+  "source_parity_checked": true,
+  "profile_commands_checked": true,
+  "decompressed_hashes_verified": true,
+  "export_hashes_verified": true,
+  "personal_authorization_and_private_key_payload_absent": true,
+  "physical_source_preview": {
+    "appearance_timeout_rollback": true,
+    "confirmed_settings": true,
+    "terminal_720p_font24": true,
+    "keyboard_focus_and_shell_cleanup": true
+  },
+  "exact_image_pair_cold_boot_accepted": false,
+  "redistribution_cleared": false,
+  "published": false,
+  "physical_host_first_boot_sanity": {
+    "root_a_read_only": true,
+    "data_writable": true,
+    "lcd_ready": true,
+    "ethernet_ssh_working": true,
+    "installer_ready": true,
+    "both_slot_payload_hashes_verified": true
+  },
+  "exact_adb_image_cold_boot_accepted": false
+}

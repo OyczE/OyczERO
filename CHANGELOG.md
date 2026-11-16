@@ -1,9 +1,96 @@
 # OyczERO changelog
 
+## 2026-11-16 - Reliable Wi-Fi and hidden networks (GREEN)
+
+Build `20261116T173028Z-g2c142df3759d`; clean source commit `2c142df3759d`. Exact Host image
+accepted on hardware (GREEN). [Release notes](releases/20261116T173028Z-g2c142df3759d/RELEASE-NOTES.md).
+
+- Fixed Wi-Fi sometimes staying down after boot or when the cable was unplugged:
+  the saved country is applied before the network manager starts, the radio is
+  no longer blocked again during start-up, and start-up verifies that `wlan0`
+  is up (one retry). Automatic Wi-Fi takeover passed 6/6 A-B-A cycles; the
+  previous candidate failed 3/6.
+- Added hidden Wi-Fi networks to Setup (`h: add a hidden network`): name plus
+  hidden password, saved on `/data`, automatic reconnect; failed attempts leave
+  no saved profile. Enterprise networks still need connmanctl.
+- First-install restart (introduced in the previous candidate) is now part of
+  committed source; no `-dirty` suffix.
+- Verified: fresh install with one automatic restart, A/B layout, persistent
+  install logs, automatic `wlan0`, DATA preserved across six slot switches.
+- Pending: ADB image hardware test, third-party notices/corresponding sources,
+  JanOS-app redistribution approval. No OTA updater or automatic rollback yet.
+
+
+## Hardware follow-up: 20261116T100207Z-g5cdfe51b8172-dirty
+
+## Additional physical acceptance: A-B-A and Wi-Fi
+
+One-shot boot of B and normal return to A passed; DATA sentinel and network-policy
+hashes were preserved. Wi-Fi association, DHCP, gateway ping and SSH over wlan0
+passed. After returning to A, disabling Ethernet automatically connected saved
+Wi-Fi; re-enabling Ethernet restored route preference.
+
+**Known intermittent issue:** the first automatic Wi-Fi attempt during the B
+trial failed with `connect-failed`; explicit reconnect using the saved profile
+succeeded. Repeated reconnect reliability is not yet accepted. These tests do
+not qualify automatic rollback, power-loss recovery or an update installer.
+Both slots ran the same build. Exact ADB profile testing remains pending.
+
+## 2026-11-16 - Clean first-install reboot accepted
+
+Build `20261116T100207Z-g5cdfe51b8172-dirty`. Exact Host image accepted by the owner (GREEN).
+
+- Restart after verified provisioning and preserve logs on DATA.
+- Normal boot initializes Wi-Fi correctly; automatic wlan0 confirmed on hardware.
+- 690 automated checks and two installer integrations passed.
+- ADB profile, Wi-Fi association and slot-B boot remain separate pending tests.
+- Development build provenance retained; publication/license gates still apply.
+
+
+## Hardware follow-up: 20261116T084926Z-g5cdfe51b8172
+
+### Hardware follow-up
+
+The exact Host image booted on the device; the user accepted its appearance.
+SSH inspection confirmed the logo and all installer stages in retained logs,
+valid ready records, matching A/B payload hashes, writable DATA, LCD, HDMI
+mirroring, Ethernet and SSH. This does not establish a boot of slot B or the
+ADB profile, nor a second-boot persistence test.
+
+**Known release blocker:** Wi-Fi has no interface on this first boot. Kernel
+logs report `brcmf_fwvid_request_module: mod=cyw: failed -2` and attach failure.
+Diagnosis and a verified fix are required before publication.
+
 Changes are listed newest first. This history describes local development;
 none of the entries below is a published GitHub release. Commit IDs refer to
 the private development history and do not require publishing its source.
 Earlier milestones are summarized from their local commit records.
+
+## 2026-11-16 - First-install logo candidate
+
+Build `20261116T084926Z-g5cdfe51b8172`; clean source commit `5cdfe51b8172`.
+
+- Added the accepted OyczERO bitmap logo to the first-install display path.
+- Reveal letters for 1.75 seconds, then hold the complete word for one second.
+- Keep LCD/HDMI progress, terminal appearance controls and automatic rollback.
+- Preserve the normal completed-card boot path and skip logo delay if headless.
+- Added logo bounds/timing tests; consolidated the private implementation TODO.
+- Recorded successful sanity of the preceding clean Host image separately from
+  pending cold-boot acceptance of this new pair. Not a published release.
+
+## 2026-11-16 - Compact installer and configurable HDMI candidate
+
+Build `20261116T081953Z-g751f98f24ea4`; clean local source commit `751f98f24ea4`.
+HDMI implementation commit: `258859c4853d`.
+
+- Added compact first-install A/B provisioning and bootstrap LCD firmware access.
+- Added independent HDMI terminal, selectable resolution and 16/24/32 px fonts.
+- Replaced setup keyboard-routing rows with the requested appearance controls.
+- Added 15-second display preview confirmation and rollback on timeout/disconnect.
+- Fixed terminal cleanup after shell hangup and kept keyboard routing in CLI.
+- Removed implicit inclusion of local SSH authorization seeds from standard builds.
+- Prepared Host/ADB installer payloads and checksums. Nothing published.
+- Remaining gates: exact-image acceptance and third-party redistribution material.
 
 ## Unreleased
 
@@ -30,6 +117,72 @@ Earlier milestones are summarized from their local commit records.
 
 The updater design and directory structure do not provide a working installer,
 website or OTA service. JanOS autostart is also deferred.
+
+## 2026-11-15 - Clean setup release candidate
+
+Build: `20261115T215239Z-gbbdc8f6a0c1e`. Source commit: `bbdc8f6a0c1eea52fd13d2da7d7a0111c29b2d88`.
+Local clean rebuild; not published. [Release notes](releases/20261115T215239Z-gbbdc8f6a0c1e/RELEASE-NOTES.md).
+
+Includes personal SSH setup, SSH/ADB boot profiles, keyboard settings, F1/F2/F3,
+welcome IP/access status, persistent EXT/Grove power and Wi-Fi setup/boot policy.
+The update architecture remains documented; these images retain the legacy
+three-partition layout and are fresh installations, not OTA updates.
+
+## 2026-11-15 - Shell shortcuts and persistent setup
+
+Build: `20261115T205648Z-g770aba728835-dirty`. Staged locally, not published.
+See [release notes](releases/20261115T205648Z-g770aba728835-dirty/RELEASE-NOTES.md).
+
+- F1 info, F2 setup, F3 JanOS at the Bash prompt; built-in Fn+1/2/3.
+- Colored welcome command hints, connected IPv4 addresses and truthful access startup.
+- Saved EXT/Grove 5V preferences restored after reboot, with verified controls and rollback.
+- Wi-Fi country/SSID/hidden-password workflow plus an independent Wi-Fi-at-boot toggle.
+- Correct text/password terminal mode when F2 launches setup from readline.
+- 637 source/image tests passed; ARM64 read-only network/SSH/setup and Bash welcome
+  passed. Physical 20:11 base plus RAM modules passed menu/LCD/power/Wi-Fi and
+  software Ethernet fallback checks; new-image cold boot and physical keys pending.
+
+## 2026-11-15 — Access setup and expansion power
+
+Build: `20261115T201146Z-g770aba728835-dirty`.
+Source base: `770aba728835`, plus uncommitted development changes recorded by
+the original `-dirty` build identity. Status: staged locally; not published.
+See the [release notes](releases/20261115T201146Z-g770aba728835-dirty/RELEASE-NOTES.md).
+
+### Added
+
+- Personal SSH password setup with `oyczero ssh setup`, persistent authentication
+  state on `/data`, and optional public-key authorization. Passwords accept
+  1–100 UTF-8 bytes; empty passwords are rejected. No shared remote password.
+- Automatic SSH in the Host image after credentials exist, automatic USB ADB in
+  the ADB image, and independent persistent autostart switches. `start/stop` and
+  `on/off` aliases work; stopping also cancels a pending boot start for this session.
+- Keyboard `oyczero setup` with arrows or F/Z/X/C, Enter to apply, preview before
+  applying, password entry and normal console restoration on exit.
+- Welcome-screen `oyczero setup` hint and current SSH/ADB service states.
+- Independent EXT 5V and Grove 5V setup switches with verified enable readback,
+  unavailable-state reporting and shared JanOS ownership protection. Power
+  applies immediately, leaves routing unchanged and defaults off at the next boot.
+
+### Validation
+
+- 540 source/image tests passed; 27 later-stage tests were deselected.
+- Actual ARM64 read-only-root network, SSH authentication and keyboard setup
+  checks passed. Both generic image payloads match their archived hashes and
+  contain the tested setup/port modules without personal access credentials.
+- Physical build `20261115T190142Z-g770aba728835-dirty` plus RAM modules passed
+  menu/LCD checks, independent EXT/Grove enable changes and Grove Monster `pong`.
+  Both outputs and the console were restored; saved settings stayed unchanged.
+  The owner also confirmed the updated menu works. These are not cold-boot
+  acceptance results for the newly staged image, which the owner is flashing.
+
+### Retained limits
+
+- Full-image flashing replaces `/data`. This package is a fresh install, not
+  a data-preserving updater; the desktop/web flasher and signed OTA remain planned.
+- Complete physical-key coverage, current-image access autostart and EXT-only
+  electrical/peripheral acceptance remain to test. Existing third-party
+  distribution checks still apply.
 
 ## 2026-11-15 — First development release
 

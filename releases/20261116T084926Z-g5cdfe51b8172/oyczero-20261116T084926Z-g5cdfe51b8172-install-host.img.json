@@ -1,0 +1,21 @@
+{
+  "format": "oyczero-seed-v1",
+  "id": "dc8bc8e33b8b4548a070e8e64d016eb5",
+  "root_bytes": 73211904,
+  "root_sha256": "56cd26de261613c09ce5dfe9cbd553462541e4759b575062522103ca6cba591c",
+  "build": {
+    "schema": 1,
+    "build_id": "20261116T084926Z-g5cdfe51b8172",
+    "built_at_utc": "2026-11-16T08:49:26Z",
+    "git_commit": "5cdfe51b817234e1b3299fdac56640589b427346",
+    "dirty": false
+  },
+  "engine_sha256": "0642a74f50b6fbdc0d9e522d0f74858cd6b70b0c9f4dec2be554250ad9dfbf5e",
+  "builder_sha256": "8adb86d2f965cb91ab06e873417bd9e2738fddc85a67b3582c931b2e13581813",
+  "init_sha256": "d3d91be8d22e51dd9158c72382205a5491ce6ea3e39f83f9622e2046e3665061",
+  "image": "oyczero-20261116T084926Z-g5cdfe51b8172-install-host.img",
+  "size": 269484032,
+  "sha256": "5cf65031b7a99bfeb149452d72b65e604d0112e8a4b489877d705b20b4f4b329",
+  "physical_boot_validated": false,
+  "experimental": true
+}

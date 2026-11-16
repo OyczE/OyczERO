@@ -7,8 +7,8 @@ of bundled components or their derivatives.
 
 ## Current distribution status
 
-The first image package is staged for local development and testing by
-the project owner. It has not been published or cleared for distribution to
+The image packages are staged for local development and testing by
+the project owner. They have not been published or cleared for distribution to
 other recipients. Hosting a package in a private repository does not itself
 settle the licensing obligations of sharing it with other people.
 

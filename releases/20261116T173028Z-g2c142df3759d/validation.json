@@ -1,0 +1,25 @@
+{
+  "build_id": "20261116T173028Z-g2c142df3759d",
+  "git_commit": "2c142df3759d6dff0aaf68e87c66352826f180fe",
+  "dirty": false,
+  "stage3_suite_passed": true,
+  "installer_integrations_rerun": false,
+  "root_hash_matches_manifest": true,
+  "fix_present_in_root": true,
+  "credential_scan_clean": true,
+  "physical_install_verified": true,
+  "physical_wifi_cycles_verified": true,
+  "published": false,
+  "hidden_network_join_verified": true,
+  "hidden_network_reboot_reconnect_verified": true,
+  "hidden_network_wrong_password_cleanup_verified": false,
+  "ab_cycles": {
+    "passed": 6,
+    "total": 6,
+    "data_preserved": 6,
+    "wifi_fallback": 6,
+    "ethernet_preferred": 6
+  },
+  "owner_status": "GREEN",
+  "adb_variant_verified": false
+}

@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "build": {
+    "schema": 1,
+    "build_id": "20261116T100207Z-g5cdfe51b8172-dirty",
+    "built_at_utc": "2026-11-16T10:02:07Z",
+    "git_commit": "5cdfe51b817234e1b3299fdac56640589b427346",
+    "dirty": true
+  },
+  "kind": "compact-fresh-install",
+  "layout": "ab-v3",
+  "board": "CardputerZero v0.5",
+  "publication_status": "staged-not-cleared",
+  "host_acceptance": "green-owner-accepted",
+  "preserves_data": false,
+  "ota_supported": false,
+  "artifacts": [
+    {
+      "file": "oyczero-20261116T100207Z-g5cdfe51b8172-dirty-install-adb.img.xz",
+      "size": 92047688,
+      "sha256": "bab022e8613cee5f6657bbe12f056c38d25348a312e08edd9ac875b25bf0551e",
+      "raw_sha256": "247a3a751d3555089075b0361836087621fe057d911d6627400eb897745a7f2e",
+      "raw_size": 269484032,
+      "profile": "adb"
+    },
+    {
+      "file": "oyczero-20261116T100207Z-g5cdfe51b8172-dirty-install-host.img.xz",
+      "size": 92052216,
+      "sha256": "ab3269deb98d64b3687d3ab02071fbfd7262df1eca7169f1bcb5b526bfcd1cec",
+      "raw_sha256": "b38e4a3ae77d78e1fad24646009d3445dab7c8ce9299f2dc5e7b0e98ff2535bb",
+      "raw_size": 269484032,
+      "profile": "host"
+    }
+  ]
+}

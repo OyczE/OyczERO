@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "build_id": "20261115T201146Z-g770aba728835-dirty",
+  "publication_status": "staged_locally_not_published",
+  "source_image_tests": {
+    "passed": 540,
+    "deselected": 27
+  },
+  "qemu_arm64_readonly_network_ssh_setup": "passed",
+  "qemu_scope": "Real ARM64 userspace on the host kernel; not full CardputerZero hardware emulation",
+  "archive_checksums_match": true,
+  "image_inspection": {
+    "embedded_build_metadata_matches": true,
+    "setup_and_port_modules_match_tested_sources": true,
+    "access_profiles_match": true,
+    "preauthorized_personal_ssh_keys": false,
+    "private_access_keys_found": false,
+    "preset_remote_password": false
+  },
+  "physical_acceptance": {
+    "base_build": "20261115T190142Z-g770aba728835-dirty",
+    "scope": "RAM setup/system modules on the physical device; SSH PTY input and LCD framebuffer capture",
+    "verified": [
+      "Independent EXT and Grove enable control changes only after Enter",
+      "Grove Monster pong at 115200 8N1",
+      "Both power controls restored off",
+      "Menu and welcome fit the LCD",
+      "Normal console input restored",
+      "Saved settings and credentials unchanged"
+    ],
+    "user_report": "The owner confirmed boot, personal password setup and working SSH after reboot. Remote password SSH subsequently verified this exact running build.",
+    "current_image_cold_boot": "owner-confirmed boot and SSH after reboot; broader hardware acceptance pending",
+    "remaining": [
+      "Cold boot and access autostart on this exact image",
+      "Complete physical keyboard coverage",
+      "EXT connector voltage and EXT-connected peripheral"
+    ]
+  },
+  "notes": [
+    "Power-control readback is not a voltage measurement.",
+    "No installer, signed OTA or data-preserving update is provided."
+  ],
+  "images": [
+    {
+      "profile": "host",
+      "kernel": "6.18.39-v8",
+      "data_seed_contains_user_configuration": false,
+      "data_layout_marker": "oyczero-data-v1",
+      "partitions": 3
+    },
+    {
+      "profile": "adb",
+      "kernel": "6.18.39-v8",
+      "data_seed_contains_user_configuration": false,
+      "data_layout_marker": "oyczero-data-v1",
+      "partitions": 3
+    }
+  ]
+}
