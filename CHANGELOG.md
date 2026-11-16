@@ -1,5 +1,18 @@
 # OyczERO changelog
 
+## 2026-11-16 - Over-the-air A/B updates (development channel)
+
+- New `oyczero update check|install latest|status`: downloads a signed update
+  package from GitHub, writes the inactive system slot, restarts once to try it
+  and keeps it only after a successful start. Settings and files are kept.
+- Verified on hardware: local and GitHub updates in both directions, rejection
+  of modified and foreign packages, automatic return after a failed trial.
+- First updater build: `20261116T184024Z-gfce776c6ce74` (needs one fresh
+  installation). First published package: `update-20261116T192908Z-g0eec177f2b79`
+  (pre-release). Not yet covered: power loss during an update, hung-kernel
+  recovery. See [Update packages](releases/README.md#update-packages-development-channel).
+
+
 ## 2026-11-16 - Reliable Wi-Fi and hidden networks (GREEN)
 
 Build `20261116T173028Z-g2c142df3759d`; clean source commit `2c142df3759d`. Exact Host image

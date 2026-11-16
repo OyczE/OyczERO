@@ -54,3 +54,22 @@ The current package contains two compact installer `.img.xz` files (about
 The images are local staging files ignored by Git. Upload them as Release
 attachments when publication is authorized; commit only the reviewed metadata
 and documentation. Preserve the original build ID, including `-dirty`.
+
+## Update packages (development channel)
+
+Systems from build `20261116T184024Z-gfce776c6ce74` onwards can update
+themselves without erasing settings or files:
+
+```
+oyczero update check            # look for a newer package on GitHub
+oyczero update install latest   # download, verify, install, restart once
+oyczero update status           # running build, other slot, last result
+```
+
+Packages (`oyczero-BUILD-update.oyu`, about 80 MB) are published as GitHub
+pre-releases named `update-BUILD`. Each package is signed; the device rejects
+modified or foreign packages. The update is written to the inactive system
+slot and tried once; it becomes the default only after a successful start,
+otherwise the previous system keeps running. Older images without the updater
+need one fresh installation first. These are development builds; version
+numbering (0001) starts with the first stable update channel.
