@@ -1,5 +1,20 @@
 # OyczERO changelog
 
+## 2026-11-17 - OyczERO 0003 (stable release)
+
+- Release [`v0003`](https://github.com/OyczE/OyczERO/releases/tag/v0003), build
+  `20261117T201626Z-gb9874b812b35`. Install on a running OyczERO system with
+  `oyczero update install latest`; settings and files are kept.
+- Fixes the 0001 known issue: the occasional hang during start-up and during
+  the restart into an update was caused by an SD card driver error; the system
+  now recovers from it.
+- USB Wi-Fi adapters: firmware for 22 chipsets; verified on hardware: ALFA
+  AWUS036AXML (MT7921AU) and AWUS036AC (RTL8812AU).
+- Stable Wi-Fi names (`wlan0` for the built-in radio, `wlx<MAC>` for USB
+  adapters), power saving off for USB adapters, automatic reconnect of saved
+  networks, and reuse of a network saved for another adapter in Setup.
+- 0002 was an internal test version and was not released.
+
 ## 2026-11-16 - OyczERO 0001 (first stable release)
 
 - Release [`v0001`](https://github.com/OyczE/OyczERO/releases/tag/v0001), build
