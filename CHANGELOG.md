@@ -1,5 +1,17 @@
 # OyczERO changelog
 
+## 2026-11-17 - OyczERO 0004 (stable release)
+
+- Release [`v0004`](https://github.com/OyczE/OyczERO/releases/tag/v0004), build
+  `20261117T203636Z-gba2622bd85bd`. Install on a running OyczERO system with
+  `oyczero update install latest`; settings and files are kept.
+- Wi-Fi monitor mode for USB adapters: `oyczero monitor list|on|channel|off|status`.
+  `off` returns the adapter to normal Wi-Fi and saved networks reconnect.
+- Capture tools: `tcpdump`, `airodump-ng`, `aireplay-ng`, `aircrack-ng`.
+- Verified with the ALFA AWUS036AC (RTL8812AU) on 2.4 and 5 GHz; the built-in
+  Wi-Fi has no monitor mode. Other adapters and frame injection are not
+  verified yet. Use only on networks you own or are authorised to test.
+
 ## 2026-11-17 - OyczERO 0003 (stable release)
 
 - Release [`v0003`](https://github.com/OyczE/OyczERO/releases/tag/v0003), build
