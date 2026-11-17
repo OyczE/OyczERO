@@ -1,14 +1,42 @@
-# Desktop installer packages
+# OyczERO packages
 
-Stage native OyczERO Flasher installers by platform:
+Optional tool packages use one directory per package and package version. The
+version combines the upstream version with an OyczERO packaging revision:
 
-- `windows/`: Windows setup executables; MSI if later supported.
-- `linux/`: AppImage and Debian packages for tested architectures.
-- `macos/`: DMG packages for tested Apple Silicon/Intel targets.
+```text
+packages/
+  catalog.json
+  wifit3/
+    0.7.1-r1/
+      manifest.json
+      SHA256SUMS
+      RELEASE-NOTES.md
+  airgeddon/
+    12.10-r1/
+      manifest.json
+      SHA256SUMS
+      RELEASE-NOTES.md
+```
 
-Record installer version, architecture, required OS version, checksum and
-signing status. These are build outputs; source remains in `apps/updater/`
-outside the distribution workspace. Binary packages are uploaded as GitHub
-Release assets and excluded from Git history by this workspace's ignore rules.
+Package payloads use the `.oyp` extension, include their architecture in the
+filename and are uploaded as immutable GitHub Release assets:
 
-No installer binaries have been built or copied into these directories yet.
+```text
+wifit3-0.7.1-r1-aarch64.oyp
+airgeddon-12.10-r1-aarch64.oyp
+```
+
+Each package revision has its own release tag, for example
+`pkg-wifit3-0.7.1-r1`. Published assets are never replaced in place. A newer
+package creates an `r2` revision or a new upstream-version directory, while the
+catalog retains exact versioned download URLs for supported older revisions.
+Assets remain available until their release is deliberately retired.
+
+Only reviewed public metadata, checksums, release notes, license notices and
+required corresponding-source references belong in these directories. Build
+trees, caches, tests, logs, TODO files, internal plans, credentials and private
+source material remain outside this distribution repository.
+
+Native desktop flasher installers may use versioned platform directories under
+`packages/desktop/` after those artifacts exist and pass platform-specific
+testing.

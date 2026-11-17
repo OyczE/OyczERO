@@ -11,10 +11,18 @@
 !/docs/
 !/flasher/
 
+# Local source planning is never part of the public distribution checkout.
+/TODO.md
+/superpowers/
+/docs/TODO.md
+/docs/superpowers/
+
 # Binary release payloads are staged locally and uploaded as Release assets.
 *.img
 *.img.xz
 *.img.gz
+*.oyu
+*.oyp
 *.swu
 *.exe
 *.msi

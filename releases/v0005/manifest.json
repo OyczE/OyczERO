@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "release": "v0005",
+  "draft": true,
+  "build": {
+    "build_id": "20261117T232634Z-gb229c39f22a1",
+    "built_at_utc": "2026-11-17T23:26:34Z",
+    "git_commit": "b229c39f22a1394635a05eebfabb76365994eb5b",
+    "dirty": false,
+    "version": "0005"
+  },
+  "publication_eligible": false,
+  "publication_blockers": [
+    "Raspberry Pi Imager write/readback and fresh-install hardware acceptance have not completed for the Host and ADB installer artifacts."
+  ],
+  "artifacts": [
+    {
+      "file": "oyczero-v0005-install-host.img.xz",
+      "kind": "fresh-install",
+      "profile": "usb-host-ssh",
+      "size": 96945056,
+      "sha256": "5dcea43065acc4445c9992207b1e72abeef4476433110cb0ec0ef5dd20843356",
+      "extracted_size": 269484032,
+      "extracted_sha256": "020b666b48f809a5145d260973b0041c789f6286223251d17842bdf40815c1b3",
+      "physical_fresh_install_validated": false
+    },
+    {
+      "file": "oyczero-v0005-install-adb.img.xz",
+      "kind": "fresh-install",
+      "profile": "usb-peripheral-adb",
+      "size": 96945560,
+      "sha256": "eded00baed9ba47c572cc15a15090b7361fb65715723d6ff2fb90bd23fede6fd",
+      "extracted_size": 269484032,
+      "extracted_sha256": "1fb2543a8a30b4351426aebc40401ecb6a2c0e5108a0768d6fb80ec444b943ad",
+      "physical_fresh_install_validated": false
+    },
+    {
+      "file": "oyczero-v0005-update.oyu",
+      "kind": "signed-ab-update",
+      "profile": "data-preserving",
+      "size": 86515852,
+      "sha256": "2989f7d52aceb3846ea42b325bb52054e3b315343df97daf0cbd2394291c2740",
+      "root_bytes": 78069760,
+      "manifest_files": 367,
+      "physical_update_validated": true
+    }
+  ],
+  "validation": {
+    "stage_0_3": "902 passed, 27 later-stage requirements deselected",
+    "data_and_slots": "14 passed",
+    "fresh_installer": "2 passed",
+    "readonly_arm64_services": "passed",
+    "janos_arm64_runtime": "passed, including 10 pinned upstream tests",
+    "arm64_login": "passed",
+    "signed_update_package": "signature and all 367 manifest entries verified",
+    "compressed_installers": "XZ integrity and extracted SHA-256 verified",
+    "qemu_scope": "ARM64 user-mode on the Docker host kernel; not full-system CM0 emulation",
+    "physical_update": "passed: exact clean build installed into slot A, trial committed, rollback slot retained, DATA sentinel preserved",
+    "post_commit_reboot": "passed: slot A remained active, Ethernet and SSH returned, ConnMan ready, no current-boot oops, panic or I/O error",
+    "physical_connman_escape_probe": "passed with a synthetic profile containing spaces, quotes and a backslash; no real profile or passphrase was read",
+    "fresh_install_hardware": "not run"
+  }
+}

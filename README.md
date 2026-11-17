@@ -1,38 +1,37 @@
 # OyczERO
 
-A custom ARM64 Linux system for **CardputerZero v0.5**, with a read-only
-SquashFS system and persistent settings and files on `/data`.
+OyczERO is a custom ARM64 Linux system for CardputerZero v0.5. The system
+partition is read-only, while settings, credentials and user files persist on
+`/data`.
 
-## Current binary candidate
+## Downloads
 
-**20261116T173028Z-g2c142df3759d** is the current GREEN Host build from clean source commit `2c142df3759d`. Host and ADB compact installers,
-checksums and release documentation are prepared. It adds reliable Wi-Fi start-up and takeover
-(6/6 A-B-A cycles on hardware) and hidden Wi-Fi networks in Setup. The ADB
-profile and third-party distribution checks remain pending; see release notes.
+Use the assets attached to the numbered
+[GitHub Releases](https://github.com/OyczE/OyczERO/releases). Verify the
+published SHA-256 checksum before installation.
 
-- [Release notes](releases/20261116T173028Z-g2c142df3759d/RELEASE-NOTES.md)
-- [Publication checklist](releases/20261116T173028Z-g2c142df3759d/PUBLICATION-CHECKLIST.md)
-- [Installation and access](releases/INSTALL.md)
-- [Changelog](CHANGELOG.md)
-- [Release directory](releases/README.md)
-- [Third-party notices](THIRD-PARTY-NOTICES.md)
+The current stable release is [OyczERO 0004](https://github.com/OyczE/OyczERO/releases/tag/v0004).
+It is an update for an already installed OyczERO A/B system; it is not a full
+SD-card image for Raspberry Pi Imager.
 
-The installer writes 257 MiB and provisions two 1 GiB system slots plus DATA
-on first boot. **Fresh flashing erases existing settings and files.** A/B
-layout is present; signed OTA and automatic rollback are not implemented.
+Artifact types are intentionally separate:
 
-Features include Bash root console, LCD/status bar, Wi-Fi/LAN controls,
-SSH setup, USB ADB, persistent port power and JanOS/Monster Grove integration.
-HDMI supports Off, Mirror LCD and Terminal. Setup includes resolution and
-font size controls with a timed confirmation preview. First installation now
-shows the original OyczERO letter-reveal logo before the progress stages, then
-restarts automatically into the installed system.
+- `.img.xz`: complete initial installation or recovery through Raspberry Pi
+  Imager; replaces the card layout and DATA.
+- `.oyu`: signed A/B operating-system update for a running OyczERO system;
+  preserves DATA.
+- `.oyp`: optional tool package stored on DATA.
 
-Run `oyczero setup`; navigate with arrows or F/Z/X/C and confirm with Enter.
-The local console logs in as root. Choose your own SSH password using
-`oyczero ssh setup`; images contain no shared SSH credentials.
+See [installation instructions](releases/INSTALL.md), the
+[release layout](releases/README.md), the [changelog](CHANGELOG.md) and
+[third-party notices](THIRD-PARTY-NOTICES.md).
 
-This repository holds distribution material only. Native desktop installers
-and a browser updater are planned, not available packages. Large binaries
-belong in [GitHub Releases](https://github.com/OyczE/OyczERO/releases), not Git.
-See [LICENSE.md](LICENSE.md) for original-material terms and third-party exceptions.
+## Repository contents
+
+This repository contains public distribution material only: release metadata,
+package metadata, built web content and exported flasher deliverables. OyczERO
+source code, tests, build tools, TODO files and implementation plans are not
+published here.
+
+Large images and packages are GitHub Release assets and are not stored in Git
+history.
