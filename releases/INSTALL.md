@@ -19,7 +19,7 @@ notes for the physical USB-role switch position.
 
 ## Updating an installed system
 
-A file named `oyczero-vNNNN-update.oyu` is not a disk image and must not be
+A file named `oyczero-BUILD-ID-update.oyu` is not a disk image and must not be
 opened with Raspberry Pi Imager. Install the latest stable update on OyczERO:
 
 ```sh
@@ -31,7 +31,7 @@ oyczero update status
 For a package copied to DATA, use its actual path:
 
 ```sh
-oyczero update install /data/oyczero-vNNNN-update.oyu
+oyczero update install /data/oyczero-BUILD-ID-update.oyu
 ```
 
 The updater verifies the signed package, writes the inactive system slot and

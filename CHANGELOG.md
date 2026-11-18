@@ -2,6 +2,21 @@
 
 This changelog lists published stable releases only.
 
+## 0005 — 2026-11-18
+
+[Release v0005](https://github.com/OyczE/OyczERO/releases/tag/v0005)
+
+- Restored complete Raspberry Pi Imager fresh-install images for Host/SSH and
+  USB-peripheral/ADB profiles.
+- Kept the signed DATA-preserving A/B update as a separate artifact.
+- Removed JanOS-app and optional applications from the base OS; optional DATA
+  packages begin in 0006.
+- Added guarded ADB cable-reconnect recovery with explicit-stop suppression.
+- Fixed ADB-launched updates so access shutdown cannot kill the updater before
+  the trial restart.
+- Corrected ConnMan credential reuse for escaped SSIDs and passphrases.
+- Added reviewed Buildroot and Bootlin source-and-license release assets.
+
 ## 0004 — 2026-11-17
 
 [Release v0004](https://github.com/OyczE/OyczERO/releases/tag/v0004)

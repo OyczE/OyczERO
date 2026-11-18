@@ -1,63 +1,81 @@
 {
   "schema": 1,
   "release": "v0005",
-  "draft": true,
+  "draft": false,
   "build": {
-    "build_id": "20261117T232634Z-gb229c39f22a1",
-    "built_at_utc": "2026-11-17T23:26:34Z",
-    "git_commit": "b229c39f22a1394635a05eebfabb76365994eb5b",
+    "build_id": "20261118T140549Z-g71a33183923e",
+    "built_at_utc": "2026-11-18T14:05:49Z",
+    "git_commit": "71a33183923ea1df6a31c26eda5d29a02bb62990",
     "dirty": false,
     "version": "0005"
   },
-  "publication_eligible": false,
-  "publication_blockers": [
-    "Raspberry Pi Imager write/readback and fresh-install hardware acceptance have not completed for the Host and ADB installer artifacts."
-  ],
+  "publication_eligible": true,
+  "publication_blockers": [],
   "artifacts": [
     {
       "file": "oyczero-v0005-install-host.img.xz",
       "kind": "fresh-install",
       "profile": "usb-host-ssh",
-      "size": 96945056,
-      "sha256": "5dcea43065acc4445c9992207b1e72abeef4476433110cb0ec0ef5dd20843356",
+      "size": 96814832,
+      "sha256": "7130901d36ff2b46930941beb45d012294f74f3e044aaeb48cfe8aa7c94b36aa",
       "extracted_size": 269484032,
-      "extracted_sha256": "020b666b48f809a5145d260973b0041c789f6286223251d17842bdf40815c1b3",
+      "extracted_sha256": "bfe169191ef5b1ab0a12ee9c7115260ba8ab816b988e14d600697a9ccdc6025c",
+      "installer_id": "4b87e9ad158e428ca7593229372e8c61",
       "physical_fresh_install_validated": false
     },
     {
       "file": "oyczero-v0005-install-adb.img.xz",
       "kind": "fresh-install",
       "profile": "usb-peripheral-adb",
-      "size": 96945560,
-      "sha256": "eded00baed9ba47c572cc15a15090b7361fb65715723d6ff2fb90bd23fede6fd",
+      "size": 96815252,
+      "sha256": "755a257a342b224dc1a63f7f5612141c5bc8d7e6d677cb72943a7892583af0fe",
       "extracted_size": 269484032,
-      "extracted_sha256": "1fb2543a8a30b4351426aebc40401ecb6a2c0e5108a0768d6fb80ec444b943ad",
+      "extracted_sha256": "aa663a1054c6719f8233cc7c6dd36309f182e812ab5f5dafc3d41e0ae112f1e5",
+      "installer_id": "d1560d5870b444399d98034b0486c96e",
       "physical_fresh_install_validated": false
     },
     {
-      "file": "oyczero-v0005-update.oyu",
+      "file": "oyczero-20261118T140549Z-g71a33183923e-update.oyu",
       "kind": "signed-ab-update",
       "profile": "data-preserving",
-      "size": 86515852,
-      "sha256": "2989f7d52aceb3846ea42b325bb52054e3b315343df97daf0cbd2394291c2740",
-      "root_bytes": 78069760,
+      "size": 86353160,
+      "sha256": "8264c2d60fc6a517b406c3141fc027e14eb937e7c1bc146793e46a5693a0dd39",
+      "root_bytes": 77905920,
       "manifest_files": 367,
+      "signature_verified": true,
+      "payload_hashes_verified": true,
       "physical_update_validated": true
+    },
+    {
+      "file": "oyczero-v0005-third-party-sources.tar.xz",
+      "kind": "third-party-source-and-license",
+      "size": 1628994676,
+      "sha256": "a9f862511ca92bef92a5698509fb474526de44523916a09918e2e704f7cd0ec1",
+      "contents": "Buildroot legal-info, exact Buildroot 2026.08.1 source and final build identity"
+    },
+    {
+      "file": "oyczero-v0005-bootlin-toolchain-sources.tar.xz",
+      "kind": "external-toolchain-source-and-license",
+      "size": 452037956,
+      "sha256": "4ad05563cdcac1ca1d127bd5dcdcd1334db6feb2c78dda243339261344479e1c",
+      "toolchain": "aarch64--glibc--stable-2025.08-1",
+      "manifest_files": 122
     }
   ],
   "validation": {
-    "stage_0_3": "902 passed, 27 later-stage requirements deselected",
-    "data_and_slots": "14 passed",
-    "fresh_installer": "2 passed",
+    "stage_0_3": "919 passed, 23 later-stage requirements deselected",
+    "fresh_installer": "2 passed, including disposable-loop first/second boot and shipped ARM64 runtime",
     "readonly_arm64_services": "passed",
-    "janos_arm64_runtime": "passed, including 10 pinned upstream tests",
-    "arm64_login": "passed",
-    "signed_update_package": "signature and all 367 manifest entries verified",
+    "windows_adb_runtime": "passed, including exact binary roundtrip and emulated reconnect",
+    "signed_update_package": "Ed25519 signature and all 367 payload hashes verified",
     "compressed_installers": "XZ integrity and extracted SHA-256 verified",
-    "qemu_scope": "ARM64 user-mode on the Docker host kernel; not full-system CM0 emulation",
-    "physical_update": "passed: exact clean build installed into slot A, trial committed, rollback slot retained, DATA sentinel preserved",
-    "post_commit_reboot": "passed: slot A remained active, Ethernet and SSH returned, ConnMan ready, no current-boot oops, panic or I/O error",
-    "physical_connman_escape_probe": "passed with a synthetic profile containing spaces, quotes and a backslash; no real profile or passphrase was read",
-    "fresh_install_hardware": "not run"
+    "legal_info": "completed; all declared license hashes verified",
+    "source_archives": "XZ integrity, safe paths and all 122 Bootlin manifest hashes verified",
+    "physical_update": "exact package committed B-to-A, preserved DATA and restored ADB automatically",
+    "physical_updated_adb_reconnect": "two cable reconnects passed; explicit stop survived a reconnect; explicit start restored ADB",
+    "physical_fresh_install_scope": "the preceding clean v0005 Host and ADB candidates passed hardware fresh-install acceptance; the final installer engine and bootstrap are unchanged",
+    "physical_final_installer": "not re-flashed; final images passed disposable-loop and shipped ARM64 tests, and their exact final root passed physical update acceptance",
+    "accepted_release_scope": "owner-directed gate: final full installers on disposable loop and ARM64 runtime; exact final update, reconnect and explicit-stop lifecycle on physical CardputerZero; final image re-flash waived after the updater-only correction",
+    "qemu_scope": "ARM64 user mode and disposable loop devices on the host kernel; not full CM0 or peripheral emulation"
   }
 }

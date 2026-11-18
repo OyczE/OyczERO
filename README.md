@@ -10,9 +10,9 @@ Use the assets attached to the numbered
 [GitHub Releases](https://github.com/OyczE/OyczERO/releases). Verify the
 published SHA-256 checksum before installation.
 
-The current stable release is [OyczERO 0004](https://github.com/OyczE/OyczERO/releases/tag/v0004).
-It is an update for an already installed OyczERO A/B system; it is not a full
-SD-card image for Raspberry Pi Imager.
+The current stable release is [OyczERO 0005](https://github.com/OyczE/OyczERO/releases/tag/v0005).
+It provides complete Host/SSH and USB-peripheral/ADB SD-card images plus a
+separate signed update for an already installed OyczERO A/B system.
 
 Artifact types are intentionally separate:
 
