@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "release": "v0006",
+  "draft": false,
+  "build": {
+    "build_id": "20261118T203814Z-g69ff5e74d90f",
+    "built_at_utc": "2026-11-18T20:38:14Z",
+    "git_commit": "69ff5e74d90ffeef4dcb4a316e6b1292af34f19b",
+    "dirty": false,
+    "version": "0006"
+  },
+  "publication_eligible": true,
+  "publication_blockers": [],
+  "artifacts": [
+    {
+      "file": "oyczero-v0006-install.img.xz",
+      "kind": "fresh-install",
+      "profile": "usb-otg-auto",
+      "size": 87865820,
+      "sha256": "5a495b605d9e1846a41d594af12465b59a89d50c53fec4894f28c9909b4fdea2",
+      "extracted_size": 269484032,
+      "extracted_sha256": "56b815b1d77b3c9c0a7649d72da8f09ad69a7979b1b8fb1ee5f8183298fd2437",
+      "installer_id": "b230400689504830afbedd88384a7313",
+      "physical_fresh_install_validated": false
+    },
+    {
+      "file": "oyczero-20261118T203814Z-g69ff5e74d90f-update.oyu",
+      "kind": "signed-ab-update",
+      "profile": "data-preserving",
+      "size": 86354508,
+      "sha256": "ca2ae5974a50404b1f56edfdc4f446349e1f454a9fbc1e7301e47f39573d326d",
+      "root_bytes": 77910016,
+      "manifest_files": 367,
+      "signature_verified": true,
+      "payload_hashes_verified": true,
+      "physical_update_validated": true
+    }
+  ],
+  "validation": {
+    "stage_0_3": "941 passed, 23 later-stage requirements deselected",
+    "fresh_installer": "disposable-loop first/second installation and shipped ARM64 runtime passed",
+    "readonly_arm64_services": "passed for the exact clean build",
+    "signed_update_package": "Ed25519 signature and all 367 payload hashes verified",
+    "compressed_installer": "XZ integrity and extracted SHA-256 verified",
+    "physical_update": "exact clean package committed A-to-B and preserved DATA, backup and ConnMan profiles",
+    "physical_exact_usb_roles": "Host-to-Slave ADB root shell and Slave-to-Host LAN/SSH recovery passed without reboot",
+    "physical_candidate_adb_roundtrip": "same-source dirty candidate passed byte-identical push/pull before clean metadata rebuild",
+    "physical_final_installer": "not re-flashed; exact installer passed loop/ARM64 tests and its exact root passed physical signed-update acceptance",
+    "accepted_release_scope": "owner-directed gate: exact full installer in disposable-loop/ARM64 harness; exact clean update and USB-role lifecycle on physical CardputerZero",
+    "qemu_scope": "ARM64 user mode and disposable loop devices on the host kernel; not full CM0 or peripheral emulation"
+  }
+}

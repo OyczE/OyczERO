@@ -2,6 +2,21 @@
 
 This changelog lists published stable releases only.
 
+## 0006 — 2026-11-18
+
+[Release v0006](https://github.com/OyczE/OyczERO/releases/tag/v0006)
+
+- Replaced separate Host and ADB images with one universal image that follows
+  the physical Host/Slave switch without rebooting.
+- Added automatic Host/LAN to owned ADB transitions while keeping SSH
+  independently available over LAN or Wi-Fi.
+- Kept update-v1 compatibility: a signed update from 0005 migrates the shared
+  BOOT selectors only after the new slot passes its trial health check.
+- Fixed active A/B slot detection when the running SquashFS is mounted as
+  `/dev/root`.
+- Kept the base OS application-free; optional DATA packages remain the next
+  development priority.
+
 ## 0005 — 2026-11-18
 
 [Release v0005](https://github.com/OyczE/OyczERO/releases/tag/v0005)

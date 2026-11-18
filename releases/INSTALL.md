@@ -5,17 +5,16 @@ their SHA-256 checksums before use.
 
 ## Initial installation or recovery
 
-A file named `oyczero-vNNNN-install-host.img.xz` or
-`oyczero-vNNNN-install-adb.img.xz` is a complete SD-card image for Raspberry Pi
-Imager. Select it through **Use custom**, choose the correct SD card and complete
-write verification.
+A file named `oyczero-vNNNN-install.img.xz` is a complete SD-card image for
+Raspberry Pi Imager. Select it through **Use custom**, choose the correct SD
+card and complete write verification.
 
 This operation replaces the partition table and erases existing DATA, including
 settings, credentials and user files. Back up required files first.
 
-Choose the Host image for the normal USB-host/Ethernet profile. Choose the ADB
-image only when USB device diagnostics are required and follow the release
-notes for the physical USB-role switch position.
+Starting with 0006, one universal image follows the physical switch. Host
+exposes the internal hub and Ethernet. Slave exposes owned USB ADB through
+USB-C2. Switching roles does not require a reboot.
 
 ## Updating an installed system
 
