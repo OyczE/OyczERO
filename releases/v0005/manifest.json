@@ -45,21 +45,6 @@
       "signature_verified": true,
       "payload_hashes_verified": true,
       "physical_update_validated": true
-    },
-    {
-      "file": "oyczero-v0005-third-party-sources.tar.xz",
-      "kind": "third-party-source-and-license",
-      "size": 1628994676,
-      "sha256": "a9f862511ca92bef92a5698509fb474526de44523916a09918e2e704f7cd0ec1",
-      "contents": "Buildroot legal-info, exact Buildroot 2026.08.1 source and final build identity"
-    },
-    {
-      "file": "oyczero-v0005-bootlin-toolchain-sources.tar.xz",
-      "kind": "external-toolchain-source-and-license",
-      "size": 452037956,
-      "sha256": "4ad05563cdcac1ca1d127bd5dcdcd1334db6feb2c78dda243339261344479e1c",
-      "toolchain": "aarch64--glibc--stable-2025.08-1",
-      "manifest_files": 122
     }
   ],
   "validation": {
@@ -69,8 +54,6 @@
     "windows_adb_runtime": "passed, including exact binary roundtrip and emulated reconnect",
     "signed_update_package": "Ed25519 signature and all 367 payload hashes verified",
     "compressed_installers": "XZ integrity and extracted SHA-256 verified",
-    "legal_info": "completed; all declared license hashes verified",
-    "source_archives": "XZ integrity, safe paths and all 122 Bootlin manifest hashes verified",
     "physical_update": "exact package committed B-to-A, preserved DATA and restored ADB automatically",
     "physical_updated_adb_reconnect": "two cable reconnects passed; explicit stop survived a reconnect; explicit start restored ADB",
     "physical_fresh_install_scope": "the preceding clean v0005 Host and ADB candidates passed hardware fresh-install acceptance; the final installer engine and bootstrap are unchanged",

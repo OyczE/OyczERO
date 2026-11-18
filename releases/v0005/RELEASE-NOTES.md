@@ -18,8 +18,6 @@ Build `20261118T140549Z-g71a33183923e` from clean source commit
   a detached worker, so stopping `adbd` cannot kill the updater before tryboot.
 - Corrects saved ConnMan credential reuse for escaped SSIDs and passphrases,
   including spaces and shell-significant characters.
-- Includes the reviewed Buildroot legal-info/source bundle and the separate
-  Bootlin external-toolchain source/license supplement.
 
 ## Artifacts
 
@@ -29,10 +27,6 @@ Build `20261118T140549Z-g71a33183923e` from clean source commit
   USB-peripheral/ADB access profile.
 - `oyczero-20261118T140549Z-g71a33183923e-update.oyu`: signed A/B update for an
   existing installation; preserves DATA and is not a disk image.
-- `oyczero-v0005-third-party-sources.tar.xz`: Buildroot legal-info, exact
-  Buildroot source, component sources, patches and licenses.
-- `oyczero-v0005-bootlin-toolchain-sources.tar.xz`: external toolchain sources,
-  patches, licenses and build metadata.
 
 ## Install or update
 
@@ -57,8 +51,8 @@ oyczero update install /data/oyczero-20261118T140549Z-g71a33183923e-update.oyu
   restored ADB after the trial boot.
 - Two physical cable reconnects created working replacement daemon generations;
   explicit `ADB off` survived another reconnect and explicit start restored it.
-- All release hashes, compressed/extracted installer hashes, 367 update payload
-  hashes and 122 Bootlin manifest hashes were verified.
+- All published asset hashes, compressed/extracted installer hashes and 367
+  update payload hashes were verified.
 
 The preceding clean v0005 Host and ADB candidates passed physical fresh-install
 acceptance. The final installer bootstrap is unchanged and its exact artifacts

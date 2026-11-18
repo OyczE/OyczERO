@@ -12,19 +12,13 @@ application packages. JanOS-app redistribution therefore is not part of this
 release; any future optional package requires its own license and redistribution
 review.
 
-The v0005 release provides two source-and-license assets alongside the binary
-images and signed update:
+The public v0005 assets contain only the two binary installation images, the
+signed binary update, its manifest and checksums. The private development source,
+build workspace and local compliance archives are not published in this
+distribution repository or attached to the release.
 
-- `oyczero-v0005-third-party-sources.tar.xz`: Buildroot `legal-info`, upstream
-  source archives, applied patches, exact Buildroot 2026.08.1 source and build
-  identity.
-- `oyczero-v0005-bootlin-toolchain-sources.tar.xz`: the external Bootlin
-  AArch64 toolchain source, patches, license texts and reproducible-build
-  metadata, with a SHA-256 manifest.
-
-These collections preserve the reviewed material for the exact release. They do
-not replace the terms of each component's license or constitute automatic legal
-certification.
+Third-party components remain governed by their respective licenses. This file
+does not replace those terms or constitute automatic legal certification.
 
 ## Component references
 
@@ -32,12 +26,12 @@ This list is a starting point, not a complete software bill of materials.
 
 | Component | Reference | Treatment |
 | --- | --- | --- |
-| Buildroot and selected packages | [Buildroot licensing guidance](https://buildroot.org/downloads/manual/manual.html#legal-info) | Exact v0005 collection included in the third-party source asset |
-| Linux, BusyBox, Bash and other runtime dependencies | License files and sources of the exact built versions | Included in the reviewed Buildroot collection where applicable |
-| Bootlin external AArch64 toolchain | [Bootlin toolchains](https://toolchains.bootlin.com/) | Separate source, patches, licenses and build metadata asset included |
+| Buildroot and selected packages | [Buildroot licensing guidance](https://buildroot.org/downloads/manual/manual.html#legal-info) | Package-specific licenses and source obligations apply |
+| Linux, BusyBox, Bash and other runtime dependencies | License files of the exact built versions | Preserve applicable upstream notices and license terms |
+| Bootlin external AArch64 toolchain | [Bootlin toolchains](https://toolchains.bootlin.com/) | Toolchain and component-specific terms apply |
 | CardputerZero vendor code and firmware | [CardputerZero](https://github.com/CardputerZero) | Preserve each pinned component's upstream license and notices |
 
 Buildroot's `legal-info` target is an aid to collecting material. Its output
 requires review and is not an automatic certification of redistribution rights.
-The full private OyczERO development history is not a substitute for the
-published source-and-license assets or the original component licenses.
+The binary-only release does not change or replace the original component
+licenses.

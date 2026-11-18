@@ -15,7 +15,6 @@ This changelog lists published stable releases only.
 - Fixed ADB-launched updates so access shutdown cannot kill the updater before
   the trial restart.
 - Corrected ConnMan credential reuse for escaped SSIDs and passphrases.
-- Added reviewed Buildroot and Bootlin source-and-license release assets.
 
 ## 0004 — 2026-11-17
 

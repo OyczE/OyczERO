@@ -21,8 +21,6 @@ version and uploaded as GitHub Release assets:
 oyczero-v0005-install-host.img.xz
 oyczero-v0005-install-adb.img.xz
 oyczero-20261118T140549Z-g71a33183923e-update.oyu
-oyczero-v0005-third-party-sources.tar.xz
-oyczero-v0005-bootlin-toolchain-sources.tar.xz
 ```
 
 Images and package payloads are ignored by Git. Release directories contain
