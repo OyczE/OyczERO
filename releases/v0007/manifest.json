@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "release": "v0007",
+  "draft": false,
+  "build": {
+    "build_id": "20261119T094552Z-gaf19aa709bd6",
+    "built_at_utc": "2026-11-19T09:45:52Z",
+    "git_commit": "af19aa709bd6b3409a784a1dc78cb2b4ad3c8de7",
+    "dirty": false,
+    "version": "0007"
+  },
+  "publication_eligible": true,
+  "publication_blockers": [],
+  "artifacts": [
+    {
+      "file": "oyczero-v0007-install.img.xz",
+      "kind": "fresh-install",
+      "profile": "usb-otg-auto",
+      "size": 87888936,
+      "sha256": "f150fb17d6b6fbbcc9b1329aab89c002d345e85f357409f6fb1a985f2226e203",
+      "extracted_size": 269484032,
+      "extracted_sha256": "92651e5e9ba4f7413f5a6c7d8f98770b70d06c36ec04f56029f0ddc09b2bbc09",
+      "installer_id": "6d34e8d5568f415fb30bcfcdce5e3fb9",
+      "physical_fresh_install_validated": false
+    },
+    {
+      "file": "oyczero-20261119T094552Z-gaf19aa709bd6-update.oyu",
+      "kind": "signed-ab-update",
+      "profile": "data-preserving",
+      "size": 86383308,
+      "sha256": "54aeb31d82d661a371366f16fec124a0f1898f13954126ac9a8449cbd2941fe2",
+      "root_bytes": 77934592,
+      "manifest_files": 367,
+      "signature_verified": true,
+      "payload_hashes_verified": true,
+      "physical_update_validated": true
+    },
+    {
+      "file": "m5launcher-0.6.110-arm64.oyp",
+      "kind": "signed-optional-app",
+      "profile": "cardputerzero-v0.5-aarch64",
+      "size": 43981132,
+      "sha256": "d98fbdcb24feecce1dfcac16db126776840404a1e286c948434effcd920fd327",
+      "package_id": "m5launcher",
+      "package_version": "0.6.110",
+      "minimum_os_version": "0007",
+      "signature_verified": true,
+      "payload_hashes_verified": true,
+      "reproducible_build_verified": true,
+      "physical_package_validated": true
+    }
+  ],
+  "validation": {
+    "stage_0_3": "978 passed, 23 later-stage requirements deselected",
+    "fresh_installer": "exact release image and an independent build passed disposable-loop first/second installation and shipped ARM64 runtime tests",
+    "signed_update_package": "Ed25519 signature and all 367 payload hashes verified",
+    "compressed_installer": "XZ integrity and extracted SHA-256 verified",
+    "physical_update": "exact clean package committed A-to-B and preserved DATA and the installed optional application",
+    "optional_app_package": "three independent package builds were byte-identical and accepted by the production parser",
+    "physical_app_lifecycle": "rendering, keyboard navigation, reboot autostart, F3, Fn+Esc termination, console restoration and runtime cleanup passed",
+    "qemu_scope": "ARM64 user mode and disposable loop devices on the host kernel; not full CM0 or peripheral emulation"
+  }
+}

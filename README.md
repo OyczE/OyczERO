@@ -10,9 +10,10 @@ Use the assets attached to the numbered
 [GitHub Releases](https://github.com/OyczE/OyczERO/releases). Verify the
 published SHA-256 checksum before installation.
 
-The current stable release is [OyczERO 0006](https://github.com/OyczE/OyczERO/releases/tag/v0006).
+The current stable release is [OyczERO 0007](https://github.com/OyczE/OyczERO/releases/tag/v0007).
 It provides one universal Host/LAN and USB-peripheral/ADB SD-card image plus a
-separate signed update for an already installed OyczERO A/B system.
+separate signed update for an already installed OyczERO A/B system. The first
+optional DATA package provides M5Stack APPLauncher `0.6.110`.
 
 Artifact types are intentionally separate:
 

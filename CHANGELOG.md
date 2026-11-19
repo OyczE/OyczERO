@@ -2,6 +2,21 @@
 
 This changelog lists published stable releases only.
 
+## 0007 — 2026-11-19
+
+[Release v0007](https://github.com/OyczE/OyczERO/releases/tag/v0007)
+
+- Added signed optional `.oyp` packages stored entirely on DATA while keeping
+  the immutable base OS application-free.
+- Added `oyczero app` management, F3 install/open integration and Setup startup
+  selection; Shell remains the default.
+- Published the official ARM64 M5Stack APPLauncher `0.6.110` as the first
+  optional package.
+- Added a two-second startup cancellation window and a physical Fn+Esc hold to
+  terminate the launcher and return to a clean Shell.
+- Prevented shell input and application diagnostics from leaking onto the GUI
+  or the restored console.
+
 ## 0006 — 2026-11-18
 
 [Release v0006](https://github.com/OyczE/OyczERO/releases/tag/v0006)

@@ -6,13 +6,8 @@ version combines the upstream version with an OyczERO packaging revision:
 ```text
 packages/
   catalog.json
-  wifit3/
-    0.7.1-r1/
-      manifest.json
-      SHA256SUMS
-      RELEASE-NOTES.md
-  airgeddon/
-    12.10-r1/
+  m5launcher/
+    0.6.110-r1/
       manifest.json
       SHA256SUMS
       RELEASE-NOTES.md
@@ -22,15 +17,14 @@ Package payloads use the `.oyp` extension, include their architecture in the
 filename and are uploaded as immutable GitHub Release assets:
 
 ```text
-wifit3-0.7.1-r1-aarch64.oyp
-airgeddon-12.10-r1-aarch64.oyp
+m5launcher-0.6.110-arm64.oyp
 ```
 
-Each package revision has its own release tag, for example
-`pkg-wifit3-0.7.1-r1`. Published assets are never replaced in place. A newer
-package creates an `r2` revision or a new upstream-version directory, while the
-catalog retains exact versioned download URLs for supported older revisions.
-Assets remain available until their release is deliberately retired.
+M5Launcher `0.6.110-r1` is attached to system release `v0007` because the first
+catalog implementation pins that exact stable asset. Future independently
+versioned packages can use their own `pkg-ID-VERSION` release tags. Published
+assets are never replaced in place; a changed payload creates a new packaging
+revision or upstream version.
 
 Only reviewed public metadata, checksums, release notes, license notices and
 required corresponding-source references belong in these directories. Build

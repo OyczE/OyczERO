@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "packages": [
+    {
+      "id": "m5launcher",
+      "name": "M5Stack APPLauncher",
+      "version": "0.6.110",
+      "packaging_revision": "r1",
+      "architecture": "aarch64",
+      "board": "cardputerzero-v0.5",
+      "minimum_os_version": "0007",
+      "release": "v0007",
+      "asset": "m5launcher-0.6.110-arm64.oyp",
+      "url": "https://github.com/OyczE/OyczERO/releases/download/v0007/m5launcher-0.6.110-arm64.oyp",
+      "size": 43981132,
+      "sha256": "d98fbdcb24feecce1dfcac16db126776840404a1e286c948434effcd920fd327"
+    }
+  ]
+}

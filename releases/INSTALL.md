@@ -43,3 +43,13 @@ Optional DATA-resident tools use `.oyp` packages and their own version numbers.
 They are separate from both the initial-install image and the `.oyu` operating-
 system update. Follow the package's release notes for compatibility and install
 commands.
+
+OyczERO 0007 or newer can install the pinned M5Launcher package directly:
+
+```sh
+oyczero app install m5launcher
+```
+
+F3 installs M5Launcher when absent and opens it when installed. Package payloads
+and mutable state remain on DATA. Hold Fn+Esc for about two seconds to exit the
+running launcher and return to Shell.

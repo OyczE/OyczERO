@@ -4,7 +4,7 @@ Each numbered operating-system release uses one canonical directory:
 
 ```text
 releases/
-  v0006/
+  v0007/
     RELEASE-NOTES.md
     manifest.json
     SHA256SUMS
@@ -18,8 +18,9 @@ The corresponding large artifacts are staged locally with the same release
 version and uploaded as GitHub Release assets:
 
 ```text
-oyczero-v0006-install.img.xz
-oyczero-20261118T203814Z-g69ff5e74d90f-update.oyu
+oyczero-v0007-install.img.xz
+oyczero-20261119T094552Z-gaf19aa709bd6-update.oyu
+m5launcher-0.6.110-arm64.oyp
 ```
 
 Images and package payloads are ignored by Git. Release directories contain
