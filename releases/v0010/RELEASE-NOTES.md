@@ -44,12 +44,17 @@ oyczero update install /data/oyczero-20261125T215516Z-g2963de15d72b-dirty-update
 
 ## Install wifit3
 
-Download the signed package to DATA and install it through the OycZERO package
-manager:
+Download the signed package on another computer, copy it to DATA and install it
+through the OycZERO package manager. For example, from PowerShell:
+
+```powershell
+scp -O .\wifit3-0.7.2-arm64.oyp root@DEVICE_IP:/data/
+ssh root@DEVICE_IP
+```
+
+Then run on OycZERO:
 
 ```sh
-wget -O /data/wifit3-0.7.2-arm64.oyp \
-  https://github.com/OyczE/OyczERO/releases/download/update-20261125T215516Z-g2963de15d72b-dirty/wifit3-0.7.2-arm64.oyp
 oyczero app install /data/wifit3-0.7.2-arm64.oyp
 ```
 
@@ -68,11 +73,13 @@ test.
 - The exact compressed installer passed XZ CRC and extracted-SHA-256 checks.
 - The device parsers accepted the update signature, all 368 update payload
   hashes, the wifit3 signature and all application payload hashes.
+- The exact public `.oyu` downloaded through the development channel, committed
+  from slot A to B and preserved the sampled DATA configuration.
+- The exact public wifit3 asset installed through `oyczero app install`,
+  registered version `0.7.2`, passed its signed ARM64 smoke mode and rejected
+  handing the internal `wlan0` radio to the application.
 
-Exact update and optional-package installation on physical hardware are the
-acceptance purpose of this prerelease and are still pending in this initial
-publication. The exact compressed installer has not been written to a physical
-card.
+The exact compressed installer has not been written to a physical card.
 
 ## Known limitations
 

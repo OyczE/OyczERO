@@ -13,8 +13,7 @@
   "publication_eligible": false,
   "publication_blockers": [
     "The candidate was built from an intentionally dirty local source tree.",
-    "The exact compressed installer has not been written to a physical SD card.",
-    "Exact update and optional-package hardware validation is pending."
+    "The exact compressed installer has not been written to a physical SD card."
   ],
   "artifacts": [
     {
@@ -40,7 +39,7 @@
       "manifest_files": 368,
       "signature_verified": true,
       "payload_hashes_verified": true,
-      "physical_update_validated": false
+      "physical_update_validated": true
     },
     {
       "file": "wifit3-0.7.2-arm64.oyp",
@@ -54,7 +53,7 @@
       "upstream_revision": "2a2d91ed908867496c76c470ae143af864b07022",
       "signature_verified": true,
       "payload_hashes_verified": true,
-      "physical_package_validated": false
+      "physical_package_validated": true
     }
   ],
   "validation": {
@@ -62,6 +61,8 @@
     "signed_update_package": "Ed25519 signature and all 368 payload hashes verified with the device parser",
     "signed_wifit3_package": "Ed25519 signature and all payload hashes verified with the device parser",
     "compressed_installer": "XZ integrity, extracted size and extracted SHA-256 verified",
+    "physical_update": "The exact public prerelease package downloaded through the dev channel, committed from slot A to B and preserved the sampled DATA configuration",
+    "physical_wifit3": "The exact public asset installed through oyczero app, registered version 0.7.2, passed the signed ARM64 smoke mode and protected internal wlan0",
     "qemu_scope": "ARM64 user mode and disposable loop devices on the host kernel; not full CM0 or peripheral emulation"
   }
 }
