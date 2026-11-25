@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "release": "update-20261125T215516Z-g2963de15d72b-dirty",
+  "version": "0010",
+  "prerelease": true,
+  "build": {
+    "build_id": "20261125T215516Z-g2963de15d72b-dirty",
+    "built_at_utc": "2026-11-25T21:55:16Z",
+    "git_commit": "2963de15d72bbdc390c6f50089def15b7f1f274c",
+    "dirty": true,
+    "version": "0010"
+  },
+  "publication_eligible": false,
+  "publication_blockers": [
+    "The candidate was built from an intentionally dirty local source tree.",
+    "The exact compressed installer has not been written to a physical SD card.",
+    "Exact update and optional-package hardware validation is pending."
+  ],
+  "artifacts": [
+    {
+      "file": "oyczero-v0010-pre-install.img.xz",
+      "kind": "fresh-install",
+      "profile": "usb-otg-auto",
+      "size": 448433668,
+      "sha256": "c8876de7b26d6cb08bbe792dca7296a98c422011f999af0b221abb16a47ee17d",
+      "extracted_size": 611799040,
+      "extracted_sha256": "6debdddb19912fe80b99f9d0cc2c3a248d19a25c086b4f6c0a3d3998c239965d",
+      "root_bytes": 342315008,
+      "root_sha256": "91b91772eefac16ebd3a41f88426e2ec18f95d154bd34771e6d13d78f8ac6bd1",
+      "installer_id": "eeaf18188df84132900fec7dc4872a6d",
+      "physical_fresh_install_validated": false
+    },
+    {
+      "file": "oyczero-20261125T215516Z-g2963de15d72b-dirty-update.oyu",
+      "kind": "signed-ab-update",
+      "profile": "data-preserving",
+      "size": 350819288,
+      "sha256": "f26c90fcba2a2f403210a52563fa4f11af9484ea2ac4d3cbae9a7823926e35f3",
+      "root_bytes": 342315008,
+      "manifest_files": 368,
+      "signature_verified": true,
+      "payload_hashes_verified": true,
+      "physical_update_validated": false
+    },
+    {
+      "file": "wifit3-0.7.2-arm64.oyp",
+      "kind": "signed-optional-application",
+      "profile": "cardputerzero-v0.5-aarch64",
+      "size": 43338624,
+      "sha256": "5dffc48506e11f37c34bac06032b7b8202180688d11b183bd8edab39f67d7c3e",
+      "package_id": "wifit3",
+      "package_version": "0.7.2",
+      "minimum_os_version": "0010",
+      "upstream_revision": "2a2d91ed908867496c76c470ae143af864b07022",
+      "signature_verified": true,
+      "payload_hashes_verified": true,
+      "physical_package_validated": false
+    }
+  ],
+  "validation": {
+    "host_suite": "1553 tests passed and 15 later-stage requirements were deselected",
+    "signed_update_package": "Ed25519 signature and all 368 payload hashes verified with the device parser",
+    "signed_wifit3_package": "Ed25519 signature and all payload hashes verified with the device parser",
+    "compressed_installer": "XZ integrity, extracted size and extracted SHA-256 verified",
+    "qemu_scope": "ARM64 user mode and disposable loop devices on the host kernel; not full CM0 or peripheral emulation"
+  }
+}

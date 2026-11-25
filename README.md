@@ -31,6 +31,52 @@ See [installation instructions](releases/INSTALL.md), the
 [release layout](releases/README.md), the [changelog](CHANGELOG.md) and
 [third-party notices](THIRD-PARTY-NOTICES.md).
 
+## HDMI display and terminal (0010 and later)
+
+Connect and power the HDMI monitor before starting or rebooting CardputerZero.
+The legacy framebuffer backend selects its output geometry during boot and
+cannot reliably detect a monitor connected later. If the display stays blank
+after a hot-plug, leave it connected and reboot OycZERO.
+
+Run `oyczero setup` from the local Shell and select one of these HDMI modes:
+
+- **Off** disables the HDMI service.
+- **Mirror LCD** scales the CardputerZero LCD framebuffer to HDMI.
+- **Terminal** renders an independent Shell on `tty2`; the LCD Shell remains on
+  `tty1`.
+
+The equivalent command-line controls are:
+
+```sh
+oyczero hdmi mirror
+oyczero hdmi terminal
+oyczero hdmi off
+oyczero hdmi status
+oyczero hdmi resolution auto
+oyczero hdmi resolution 1920x1080
+oyczero hdmi font 24
+```
+
+Resolution and font changes show a timed preview and are saved only after
+confirmation. Supported resolutions are `auto`, `1280x720` and `1920x1080`;
+supported terminal font preferences are `16`, `24` and `32` px. If the active
+framebuffer is too small for the saved preference, Terminal uses the largest
+smaller supported font without overwriting the preference. `oyczero hdmi
+status` reports both the saved and active font sizes.
+
+Terminal keyboard focus is explicit:
+
+```sh
+oyczero hdmi focus  # move the Cardputer keyboard to the HDMI tty2
+oyczero hdmi lcd    # return the keyboard to the LCD tty1
+```
+
+Typing `exit` inside the HDMI Shell also closes that Shell and returns focus to
+the LCD. Return to the LCD before changing HDMI mode from the local Terminal.
+SSH remains available as the recovery path; use `oyczero hdmi status`,
+`oyczero hdmi lcd` and `/run/oyczero-hdmi.log` to diagnose a blank or failed
+session.
+
 ## Repository contents
 
 This repository contains public distribution material only: release metadata,

@@ -59,4 +59,6 @@ The signed `.oyp` initializes the Debian runtime. The two published `.deb`
 assets are verified against the release lock and installed inside that runtime;
 they are not passed directly to `oyczero app install`. MLauncher is the default
 startup target. Esc during its startup countdown keeps Shell for the current
-boot, and Fn+Esc exits the running launcher to Shell.
+boot. Starting with OycZERO 0010, holding Fn+Esc for two seconds exits the
+running launcher through the host-owned cleanup path. On 0009, use
+`oyczero app shutdown` over SSH when launcher recovery is required.
