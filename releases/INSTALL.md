@@ -1,4 +1,4 @@
-# Installing and updating OyczERO
+# Installing and updating OycZERO
 
 Always download artifacts from the matching numbered GitHub Release and verify
 their SHA-256 checksums before use.
@@ -19,7 +19,7 @@ USB-C2. Switching roles does not require a reboot.
 ## Updating an installed system
 
 A file named `oyczero-BUILD-ID-update.oyu` is not a disk image and must not be
-opened with Raspberry Pi Imager. Install the latest stable update on OyczERO:
+opened with Raspberry Pi Imager. Install the latest stable update on OycZERO:
 
 ```sh
 oyczero update check
@@ -37,19 +37,26 @@ The updater verifies the signed package, writes the inactive system slot and
 tries it once. A successful trial becomes the default; a failed trial returns
 to the previous slot. DATA is preserved.
 
-## Optional tool packages
+## Application packages
 
 Optional DATA-resident tools use `.oyp` packages and their own version numbers.
 They are separate from both the initial-install image and the `.oyu` operating-
 system update. Follow the package's release notes for compatibility and install
 commands.
 
-OyczERO 0007 or newer can install the pinned M5Launcher package directly:
+OycZERO 0009 fresh installations include an offline DATA-resident default
+suite: Debian runtime `1.1.8`, official APPLaunch `0.6.111` and its matching
+Store. The same immutable release assets can repair or complete an updated
+system without replacing DATA.
+
+Install or repair the suite through F3, or run:
 
 ```sh
 oyczero app install m5launcher
 ```
 
-F3 installs M5Launcher when absent and opens it when installed. Package payloads
-and mutable state remain on DATA. Hold Fn+Esc for about two seconds to exit the
-running launcher and return to Shell.
+The signed `.oyp` initializes the Debian runtime. The two published `.deb`
+assets are verified against the release lock and installed inside that runtime;
+they are not passed directly to `oyczero app install`. MLauncher is the default
+startup target. Esc during its startup countdown keeps Shell for the current
+boot, and Fn+Esc exits the running launcher to Shell.

@@ -1,11 +1,15 @@
-# OyczERO packages
+# OycZERO packages
 
 Optional tool packages use one directory per package and package version. The
-version combines the upstream version with an OyczERO packaging revision:
+version combines the upstream version with an OycZERO packaging revision:
 
 ```text
 packages/
   catalog.json
+  debian-runtime/
+    1.1.8/
+  native-suite/
+    0.6.111-oyczero.2/
   m5launcher/
     0.6.110-r1/
       manifest.json
@@ -34,3 +38,9 @@ source material remain outside this distribution repository.
 Native desktop flasher installers may use versioned platform directories under
 `packages/desktop/` after those artifacts exist and pass platform-specific
 testing.
+
+The public catalog contains only packages accepted directly by `oyczero app`,
+including the signed Debian runtime `.oyp`. APPLaunch and Store `.deb` files are
+documented under `native-suite/`; OycZERO verifies and installs them inside the
+runtime as one locked suite. They are not direct Buildroot packages and are not
+catalog entries.

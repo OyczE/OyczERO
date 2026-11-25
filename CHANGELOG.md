@@ -1,6 +1,23 @@
-# OyczERO changelog
+# OycZERO changelog
 
 This changelog lists published stable releases only.
+
+## 0009 — 2026-11-25
+
+[Release v0009](https://github.com/OyczE/OyczERO/releases/tag/v0009)
+
+- Added a graphical ten-step offline installer with progress, recovery SSH,
+  installation audio, mute and volume controls.
+- Added the DATA-resident Debian 13 application runtime `1.1.8`, official
+  APPLaunch `0.6.111` and the matching Store as the default application suite.
+- Runs APPLaunch as the unprivileged `pi` user and keeps applications, package
+  state, home data and cache outside the immutable Buildroot core.
+- Added CardputerZero camera, BMI270/BMM150 sensor, IR and Cap-Bus/GPIO access
+  required by compatible Debian applications.
+- Added stable `wlan0`/`wlan1` naming, `ip`, `iw`, `rfkill`, MediaTek
+  `mt7921u` firmware and verified external monitor-mode capture.
+- Improved boot graphics, clean reboot/poweroff handoff and DATA integrity
+  checks for SD-card installation and A/B updates.
 
 ## 0007 — 2026-11-19
 

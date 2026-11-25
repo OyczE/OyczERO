@@ -1,0 +1,87 @@
+{
+  "schema": 1,
+  "release": "v0009",
+  "draft": false,
+  "build": {
+    "build_id": "20261125T140614Z-g2963de15d72b",
+    "built_at_utc": "2026-11-25T14:06:14Z",
+    "git_commit": "2963de15d72bbdc390c6f50089def15b7f1f274c",
+    "dirty": false,
+    "version": "0009"
+  },
+  "publication_eligible": true,
+  "publication_blockers": [],
+  "artifacts": [
+    {
+      "file": "oyczero-v0009-install.img.xz",
+      "kind": "fresh-install",
+      "profile": "usb-otg-auto",
+      "size": 448422332,
+      "sha256": "ce6a84be410c3c2b390b547f303a3714859b2903d00c8bf0c46fd7b0ffb75e62",
+      "extracted_size": 611790848,
+      "extracted_sha256": "3b9f4f9fd3243d6d920abc77b74a0c9adc1262452f14d0cc8467062821c83b88",
+      "root_bytes": 342306816,
+      "root_sha256": "e933f5291270f63b1149599ef0d16965aa1bc8a3dbfd677a1b90a7a2f5c1da50",
+      "installer_id": "58a23a77de0441789978c180b38f6eda",
+      "physical_fresh_install_validated": false
+    },
+    {
+      "file": "oyczero-20261125T140614Z-g2963de15d72b-update.oyu",
+      "kind": "signed-ab-update",
+      "profile": "data-preserving",
+      "size": 350812080,
+      "sha256": "ee11a74cf092f39fcd48a1e28d8f00fc76c9e1be5babbf83faa694a6501eb078",
+      "root_bytes": 342306816,
+      "manifest_files": 368,
+      "signature_verified": true,
+      "payload_hashes_verified": true,
+      "physical_update_validated": true
+    },
+    {
+      "file": "debian-runtime-1.1.8-arm64.oyp",
+      "kind": "signed-optional-runtime",
+      "profile": "debian-trixie-cardputerzero-v0.5-aarch64",
+      "size": 200595876,
+      "sha256": "3c50f7da576625ec4a5b6fa6d0b80aaa56dcb2374e347939658bcd9bc087c179",
+      "package_id": "debian-runtime",
+      "package_version": "1.1.8",
+      "minimum_os_version": "0008",
+      "signature_verified": true,
+      "payload_hashes_verified": true,
+      "physical_package_validated": true
+    },
+    {
+      "file": "applaunch_0.6.111-oyczero.2_arm64.deb",
+      "kind": "native-debian-application",
+      "profile": "debian-runtime-aarch64",
+      "size": 41242888,
+      "sha256": "e30a0071b3167af402e71856522ceee43f4cc2f719546800804ba8d093f515cb",
+      "package_id": "applaunch",
+      "package_version": "0.6.111-oyczero.2",
+      "suite_lock_verified": true,
+      "physical_runtime_validated": true
+    },
+    {
+      "file": "oyczero-m5market_0.6.111-oyczero.2_arm64.deb",
+      "kind": "native-debian-application",
+      "profile": "debian-runtime-aarch64",
+      "size": 1329004,
+      "sha256": "974d5b63d94718fc4d8cd5c0218897cc952182f8ec541dc49b193ade2704bd9c",
+      "package_id": "oyczero-m5market",
+      "package_version": "0.6.111-oyczero.2",
+      "suite_lock_verified": true,
+      "physical_runtime_validated": true
+    }
+  ],
+  "validation": {
+    "host_suite": "1546 tests passed from the exact clean release commit",
+    "read_only_system": "immutable root, DATA, network, SSH, password and recovery contracts passed",
+    "fresh_installer": "exact release image passed the complete offline ten-step disposable-loop timeline in 343.32 seconds",
+    "signed_update_package": "Ed25519 signature and all 368 payload hashes verified",
+    "compressed_installer": "XZ integrity, extracted size and extracted SHA-256 verified",
+    "physical_update": "exact clean package committed from slot A to B and preserved all sampled DATA hashes",
+    "application_runtime": "Debian runtime 1.1.8 and APPLaunch/Store 0.6.111 ran as pi after the update and a normal reboot",
+    "wireless": "internal wlan0 and external wlan1 survived reboot; ALFA monitor mode captured frames and restored managed mode",
+    "qemu_scope": "ARM64 user mode and disposable loop devices on the host kernel; not full CM0 or peripheral emulation"
+  }
+}
