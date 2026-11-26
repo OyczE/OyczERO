@@ -10,12 +10,13 @@ Use the assets attached to the numbered
 [GitHub Releases](https://github.com/OyczE/OyczERO/releases). Verify the
 published SHA-256 checksum before installation.
 
-The current stable release is [OycZERO 0009](https://github.com/OyczE/OyczERO/releases/tag/v0009).
+The current stable release is [OycZERO 0010](https://github.com/OyczE/OyczERO/releases/tag/v0010).
 It provides one universal Host/LAN and USB-peripheral/ADB SD-card image plus a
 separate signed update for an already installed OycZERO A/B system. Its
 offline default suite installs the Debian application runtime, official
 APPLaunch `0.6.111` and Store on DATA while the Buildroot core remains
-read-only.
+read-only. WiFiT3 `0.7.2` is available as a separate signed optional package
+for supported external USB wireless adapters.
 
 Artifact types are intentionally separate:
 

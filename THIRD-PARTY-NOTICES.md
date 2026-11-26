@@ -7,7 +7,7 @@ of bundled components or their derivatives.
 
 ## Current distribution status
 
-OycZERO 0009 keeps the immutable Buildroot core separate from application
+OycZERO 0010 keeps the immutable Buildroot core separate from application
 payloads. The fresh installer carries an offline default suite that is installed
 on DATA: the signed Debian runtime `1.1.8`, official ARM64 APPLaunch `0.6.111`
 content and its matching Store revision. The same immutable components are
@@ -16,10 +16,12 @@ runtime retain applicable upstream notices and Debian copyright files. JanOS-app
 is not included; any future package requires its own license and redistribution
 review.
 
-The public v0009 assets contain one binary installer, one signed binary update,
-one signed runtime package, two native Debian packages, the release manifest
-and checksums. The private development source, build workspace and local
-compliance archives are not published in this distribution repository or
+The public v0010 assets contain one binary installer, one signed binary update,
+one signed runtime package, two native Debian packages, the signed optional
+WiFiT3 package, the release manifest and checksums. WiFiT3 retains its GPL-2.0
+notice, exact upstream provenance and corresponding source archive inside the
+signed package. The private OycZERO development source, build workspace and
+local compliance archives are not published in this distribution repository or
 attached to the release.
 
 Third-party components remain governed by their respective licenses. This file
@@ -37,6 +39,7 @@ This list is a starting point, not a complete software bill of materials.
 | CardputerZero vendor code and firmware | [CardputerZero](https://github.com/CardputerZero) | Preserve each pinned component's upstream license and notices |
 | M5Stack APPLaunch 0.6.111 | [CardputerZero/launcher](https://github.com/CardputerZero/launcher/tree/launcher-v0.6.111) | Official ARM64 content is installed inside the DATA runtime; bundled notices are retained |
 | CardputerZero Store revision `1ceeaed7` | [CardputerZero/Store](https://github.com/CardputerZero/Store) | Built as a native Debian package locked to APPLaunch 0.6.111 |
+| wifit3 0.7.2 | [derv82/wifit3](https://github.com/derv82/wifit3) | GPL-2.0-only terminal package; signed payload includes exact provenance and corresponding source |
 | Debian 13 application runtime | [Debian copyright information](https://www.debian.org/doc/debian-policy/ch-docs.html#copyright-information) | Exact package versions, hashes, copyright files and licenses are retained inside the signed runtime package |
 | Raspberry Pi and Broadcom boot firmware | License files shipped with the exact firmware release | Applicable firmware notices, including `LICENCE.broadcom`, are retained in the image |
 

@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "id": "wifit3",
+  "name": "wifit3 USB Wireless Auditor",
+  "version": "0.7.2",
+  "packaging_revision": "r1",
+  "architecture": "aarch64",
+  "board": "cardputerzero-v0.5",
+  "minimum_os_version": "0010",
+  "release": "v0010",
+  "asset": "wifit3-0.7.2-arm64.oyp",
+  "url": "https://github.com/OyczE/OyczERO/releases/download/v0010/wifit3-0.7.2-arm64.oyp",
+  "size": 43338624,
+  "sha256": "5dffc48506e11f37c34bac06032b7b8202180688d11b183bd8edab39f67d7c3e",
+  "license": "GPL-2.0-only",
+  "upstream": {
+    "repository": "https://github.com/derv82/wifit3",
+    "revision": "2a2d91ed908867496c76c470ae143af864b07022"
+  },
+  "corresponding_source": "embedded in the signed package"
+}

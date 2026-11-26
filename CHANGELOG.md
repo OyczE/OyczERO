@@ -2,6 +2,22 @@
 
 This changelog lists published stable releases only.
 
+## 0010 — 2026-11-26
+
+[Release v0010](https://github.com/OyczE/OyczERO/releases/tag/v0010)
+
+- Added the signed optional WiFiT3 `0.7.2` package with guarded ownership and
+  cleanup for supported external USB wireless adapters.
+- Added HDMI Terminal font auto-fit, explicit LCD/HDMI keyboard focus controls
+  and documented recovery for blank or hot-plugged legacy-fbdev displays.
+- Restored the host-owned two-second Fn+Esc emergency exit for the native
+  MLauncher while preserving clean console, mount and application state.
+- Kept the internal `wlan0` radio protected from WiFiT3 takeover and retained
+  conventional `wlan1` naming for the first external USB radio.
+- Verified the complete offline installer, native APPLaunch/Store flow, a Store
+  installation and launch of `2048`, signed WiFiT3 installation and a clean A/B
+  update on CardputerZero hardware.
+
 ## 0009 — 2026-11-25
 
 [Release v0009](https://github.com/OyczE/OyczERO/releases/tag/v0009)

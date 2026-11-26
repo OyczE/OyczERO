@@ -44,7 +44,7 @@ They are separate from both the initial-install image and the `.oyu` operating-
 system update. Follow the package's release notes for compatibility and install
 commands.
 
-OycZERO 0009 fresh installations include an offline DATA-resident default
+OycZERO 0010 fresh installations include an offline DATA-resident default
 suite: Debian runtime `1.1.8`, official APPLaunch `0.6.111` and its matching
 Store. The same immutable release assets can repair or complete an updated
 system without replacing DATA.
@@ -60,5 +60,18 @@ assets are verified against the release lock and installed inside that runtime;
 they are not passed directly to `oyczero app install`. MLauncher is the default
 startup target. Esc during its startup countdown keeps Shell for the current
 boot. Starting with OycZERO 0010, holding Fn+Esc for two seconds exits the
-running launcher through the host-owned cleanup path. On 0009, use
-`oyczero app shutdown` over SSH when launcher recovery is required.
+running launcher through the host-owned cleanup path.
+
+The immutable Buildroot host does not provide `apt` or `sudo`. To install a
+reviewed local Debian package manually, first copy it into the DATA-resident
+Debian root and run `apt` there as root:
+
+```sh
+cp /data/PACKAGE_arm64.deb \
+  /data/oyczero/apps/debian-runtime/state/rootfs/tmp/
+oyczero dev --user root run apt install -y /tmp/PACKAGE_arm64.deb
+```
+
+Use `oyczero dev --user root enter` for an interactive Debian shell. The host
+BusyBox `wget` supports HTTP/FTP only; use the host `curl -fL` for HTTPS
+downloads and save them under `/data`.

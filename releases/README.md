@@ -4,7 +4,7 @@ Each numbered operating-system release uses one canonical directory:
 
 ```text
 releases/
-  v0009/
+  v0010/
     RELEASE-NOTES.md
     manifest.json
     SHA256SUMS
@@ -18,11 +18,12 @@ The corresponding large artifacts are staged locally with the same release
 version and uploaded as GitHub Release assets:
 
 ```text
-oyczero-v0009-install.img.xz
-oyczero-20261125T140614Z-g2963de15d72b-update.oyu
+oyczero-v0010-install.img.xz
+oyczero-20261126T192918Z-gaa154dd9fbab-update.oyu
 debian-runtime-1.1.8-arm64.oyp
 applaunch_0.6.111-oyczero.2_arm64.deb
 oyczero-m5market_0.6.111-oyczero.2_arm64.deb
+wifit3-0.7.2-arm64.oyp
 ```
 
 Images and package payloads are ignored by Git. Release directories contain

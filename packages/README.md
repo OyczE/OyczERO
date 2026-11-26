@@ -10,6 +10,8 @@ packages/
     1.1.8/
   native-suite/
     0.6.111-oyczero.2/
+  wifit3/
+    0.7.2/
   m5launcher/
     0.6.110-r1/
       manifest.json
@@ -44,3 +46,7 @@ including the signed Debian runtime `.oyp`. APPLaunch and Store `.deb` files are
 documented under `native-suite/`; OycZERO verifies and installs them inside the
 runtime as one locked suite. They are not direct Buildroot packages and are not
 catalog entries.
+
+WiFiT3 `0.7.2` is a signed terminal package for OycZERO 0010 and later. Its
+payload includes the applicable GPL notice, exact upstream provenance and the
+corresponding source archive used by the package build.
