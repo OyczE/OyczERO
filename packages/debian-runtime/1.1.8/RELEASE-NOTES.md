@@ -1,9 +1,11 @@
 # OycZERO Debian runtime 1.1.8
 
 This signed DATA package initializes the pinned Debian 13 application runtime
-used by OycZERO 0009. It adds the official Raspberry Pi camera stack,
-`python3-picamera2`, `iproute2`, `iw`, `rfkill`, graphics and media dependencies
-needed by compatible Store applications.
+used by OycZERO 0009 and 0010. It adds Python camera support through
+`python3-picamera2`, plus `iproute2`, `iw`, `rfkill`, graphics and media
+dependencies needed by compatible Store applications. It does not provide the
+unversioned `rpicam-apps` dependency or the Lite `rpicam-*` command suite added
+in runtime 1.1.9.
 
 Install it through the OycZERO default-suite flow. Direct installation is also
 available for recovery:

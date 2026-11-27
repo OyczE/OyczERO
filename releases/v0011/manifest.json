@@ -1,0 +1,100 @@
+{
+  "schema": 1,
+  "release": "v0011",
+  "draft": false,
+  "build": {
+    "build_id": "20261127T201522Z-gd79a6e2fd903",
+    "built_at_utc": "2026-11-27T20:15:22Z",
+    "git_commit": "d79a6e2fd903708c5b85873c39c92258b2ae2e9c",
+    "dirty": false,
+    "version": "0011"
+  },
+  "publication_eligible": true,
+  "publication_blockers": [],
+  "artifacts": [
+    {
+      "file": "oyczero-v0011-install.img.xz",
+      "kind": "fresh-install",
+      "profile": "usb-otg-auto",
+      "size": 448733016,
+      "sha256": "96f4151fdc2a5e45aff43ec8c10d76768dff94047592642379907f238dc2c299",
+      "extracted_size": 613756928,
+      "extracted_sha256": "8d37e06efaf542b16ef951b541b188c59c8d72551830cae901c07c955f6536b2",
+      "root_bytes": 344272896,
+      "root_sha256": "a3a6379631c3bad7d43240bad90f0a290d592356a237c7a443f375664643e0f3",
+      "installer_id": "80e8099ca895452c979613e7c4d3406a",
+      "physical_fresh_install_validated": false
+    },
+    {
+      "file": "oyczero-20261127T201522Z-gd79a6e2fd903-update.oyu",
+      "kind": "signed-ab-update",
+      "profile": "data-preserving",
+      "size": 352771112,
+      "sha256": "c6d9409ec5f4539c8e590be92f81342cee1bf89df4561b0accd12e2a941f3a11",
+      "root_bytes": 344272896,
+      "manifest_files": 368,
+      "signature_verified": true,
+      "payload_hashes_verified": true,
+      "physical_update_validated": false
+    },
+    {
+      "file": "debian-runtime-1.1.9-arm64.oyp",
+      "kind": "signed-optional-runtime",
+      "profile": "debian-trixie-cardputerzero-v0.5-aarch64",
+      "size": 202550024,
+      "sha256": "a62010368d6b22d318331c15885335e1330279430f0a49505e6a70495ba51a4c",
+      "package_id": "debian-runtime",
+      "package_version": "1.1.9",
+      "minimum_os_version": "0008",
+      "signature_verified": true,
+      "payload_hashes_verified": true,
+      "physical_package_validated": false
+    },
+    {
+      "file": "applaunch_0.6.111-oyczero.2_arm64.deb",
+      "kind": "native-debian-application",
+      "profile": "debian-runtime-aarch64",
+      "size": 41242888,
+      "sha256": "e30a0071b3167af402e71856522ceee43f4cc2f719546800804ba8d093f515cb",
+      "package_id": "applaunch",
+      "package_version": "0.6.111-oyczero.2",
+      "suite_lock_verified": true,
+      "physical_runtime_validated": true
+    },
+    {
+      "file": "oyczero-m5market_0.6.111-oyczero.2_arm64.deb",
+      "kind": "native-debian-application",
+      "profile": "debian-runtime-aarch64",
+      "size": 1329004,
+      "sha256": "974d5b63d94718fc4d8cd5c0218897cc952182f8ec541dc49b193ade2704bd9c",
+      "package_id": "oyczero-m5market",
+      "package_version": "0.6.111-oyczero.2",
+      "suite_lock_verified": true,
+      "physical_runtime_validated": true
+    },
+    {
+      "file": "wifit3-0.7.2-arm64.oyp",
+      "kind": "signed-optional-application",
+      "profile": "cardputerzero-v0.5-aarch64",
+      "size": 43338624,
+      "sha256": "5dffc48506e11f37c34bac06032b7b8202180688d11b183bd8edab39f67d7c3e",
+      "package_id": "wifit3",
+      "package_version": "0.7.2",
+      "minimum_os_version": "0010",
+      "upstream_revision": "2a2d91ed908867496c76c470ae143af864b07022",
+      "signature_verified": true,
+      "payload_hashes_verified": true,
+      "physical_package_validated": true
+    }
+  ],
+  "validation": {
+    "host_suite": "1595 tests passed from the exact clean release commit; 15 later-stage requirements were deselected",
+    "unified_installer": "the disposable ten-step integration completed successfully",
+    "signed_update_package": "Ed25519 signature and all 368 payload hashes verified by the production parser",
+    "compressed_installer": "XZ integrity, extracted size and extracted SHA-256 verified",
+    "physical_fresh_install_scope": "the accepted dirty 0011 candidate completed the full ten-step installation on the original M5Stack 32 GB card in 11 minutes 25 seconds; the final clean installer differs in build identity and was not written to a second card",
+    "physical_update": "the exact clean update was installed for a trial boot; final slot inspection was pending when release metadata was prepared",
+    "application_runtime": "the accepted hardware candidate ran Debian runtime 1.1.9 and APPLaunch/Store 0.6.111 as pi; Store applications, apt-installed htop, Ctrl+D restoration, F3 return and reboot were exercised",
+    "qemu_scope": "ARM64 user mode and disposable loop devices on the host kernel; not full CM0 or peripheral emulation"
+  }
+}

@@ -1,6 +1,27 @@
 # OycZERO changelog
 
-This changelog lists published stable releases only.
+This changelog lists numbered public releases. Prereleases are marked
+explicitly; version 0002 was an internal test and was not published.
+
+## 0011 — 2026-11-27
+
+[Release v0011](https://github.com/OyczE/OyczERO/releases/tag/v0011)
+
+- Updated the DATA-resident Debian runtime to `1.1.9` with the pinned Lite
+  `rpicam` command stack and an `rpicam-apps` compatibility dependency for
+  Store applications without pulling the full Raspberry Pi desktop stack.
+- Added F4 Debian help plus F5, F6 and F7 command-line shortcuts for normal,
+  administrative and application-profile Debian sessions.
+- Fixed terminal restoration when leaving nested Debian Shells with `exit` or
+  Ctrl+D.
+- Started the accepted boot intro earlier, overlapped independent startup work,
+  removed redundant launcher validation and skipped inactive optional-service
+  probes. The accepted hardware candidate reached responsive MLauncher in
+  approximately 25 seconds instead of 31 seconds.
+- Reduced the Esc startup-cancellation window to one second while retaining
+  the MLauncher-only two-second Fn+Esc managed exit.
+- Preserved the immutable Buildroot core, signed A/B updates, DATA application
+  model, native APPLaunch/Store `0.6.111`, HDMI modes and guarded WiFiT3 flow.
 
 ## 0010 — 2026-11-26
 
@@ -34,6 +55,17 @@ This changelog lists published stable releases only.
   `mt7921u` firmware and verified external monitor-mode capture.
 - Improved boot graphics, clean reboot/poweroff handoff and DATA integrity
   checks for SD-card installation and A/B updates.
+
+## 0008 — 2026-11-22 — prerelease
+
+[Prerelease v0008](https://github.com/OyczE/OyczERO/releases/tag/v0008)
+
+- Published a package-only hardware-validation build of the optional Debian
+  application stack.
+- Included Debian runtime `1.1.1`, upstream APPLaunch `0.6.110` and the matching
+  OycZERO Store integration package.
+- Deliberately omitted a full installer and signed OS update while application
+  runtime validation remained in progress.
 
 ## 0007 — 2026-11-19
 

@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "id": "debian-runtime",
+  "name": "OycZERO Debian application runtime",
+  "package_version": "1.1.9",
+  "packaging_revision": "r1",
+  "architecture": "aarch64",
+  "board": "cardputerzero-v0.5",
+  "minimum_os_version": "0008",
+  "asset": {
+    "file": "debian-runtime-1.1.9-arm64.oyp",
+    "release": "v0011",
+    "url": "https://github.com/OyczE/OyczERO/releases/download/v0011/debian-runtime-1.1.9-arm64.oyp",
+    "size": 202550024,
+    "sha256": "a62010368d6b22d318331c15885335e1330279430f0a49505e6a70495ba51a4c",
+    "signature_verified": true,
+    "payload_hashes_verified": true
+  },
+  "upstream": {
+    "distribution": "Debian 13 (trixie)",
+    "snapshot": "20261118T000000Z",
+    "base_image": "debian:trixie-slim",
+    "base_image_digest": "sha256:24a01011d10eba3a023bc8585b9650b8b29021240d4217c05b905e09ef4a5232",
+    "rootfs_archive_sha256": "c006979539f2210fd20cbcda83bb981825834316e3a9888079129c72030067ca"
+  }
+}

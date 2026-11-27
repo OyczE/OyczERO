@@ -7,7 +7,7 @@ version combines the upstream version with an OycZERO packaging revision:
 packages/
   catalog.json
   debian-runtime/
-    1.1.8/
+    1.1.9/
   native-suite/
     0.6.111-oyczero.2/
   wifit3/
@@ -46,6 +46,11 @@ including the signed Debian runtime `.oyp`. APPLaunch and Store `.deb` files are
 documented under `native-suite/`; OycZERO verifies and installs them inside the
 runtime as one locked suite. They are not direct Buildroot packages and are not
 catalog entries.
+
+Debian runtime `1.1.9` is the OycZERO 0011 runtime. It includes Picamera2,
+`rpicam-apps-lite` and the OycZERO `rpicam-apps` compatibility dependency used
+by compatible Store packages. Runtime `1.1.8` remains immutable under its
+historical directory and release.
 
 WiFiT3 `0.7.2` is a signed terminal package for OycZERO 0010 and later. Its
 payload includes the applicable GPL notice, exact upstream provenance and the

@@ -4,16 +4,16 @@
     {
       "id": "debian-runtime",
       "name": "OycZERO Debian application runtime",
-      "version": "1.1.8",
+      "version": "1.1.9",
       "packaging_revision": "r1",
       "architecture": "aarch64",
       "board": "cardputerzero-v0.5",
       "minimum_os_version": "0008",
-      "release": "v0009",
-      "asset": "debian-runtime-1.1.8-arm64.oyp",
-      "url": "https://github.com/OyczE/OyczERO/releases/download/v0009/debian-runtime-1.1.8-arm64.oyp",
-      "size": 200595876,
-      "sha256": "3c50f7da576625ec4a5b6fa6d0b80aaa56dcb2374e347939658bcd9bc087c179"
+      "release": "v0011",
+      "asset": "debian-runtime-1.1.9-arm64.oyp",
+      "url": "https://github.com/OyczE/OyczERO/releases/download/v0011/debian-runtime-1.1.9-arm64.oyp",
+      "size": 202550024,
+      "sha256": "a62010368d6b22d318331c15885335e1330279430f0a49505e6a70495ba51a4c"
     },
     {
       "id": "wifit3",

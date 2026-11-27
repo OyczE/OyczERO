@@ -1,22 +1,31 @@
 # OycZERO
 
-OycZERO is a custom ARM64 Linux system for CardputerZero v0.5. The system
-partition is read-only, while settings, credentials and user files persist on
-`/data`.
+OycZERO is a custom ARM64 Linux system for CardputerZero v0.5. It combines an
+immutable Buildroot core with a writable Debian application runtime stored on
+the DATA partition. System updates use signed A/B slots, while settings,
+credentials, applications and user files persist under `/data`.
 
 ## Downloads
 
-Use the assets attached to the numbered
-[GitHub Releases](https://github.com/OyczE/OyczERO/releases). Verify the
+Download numbered releases from
+[GitHub Releases](https://github.com/OyczE/OyczERO/releases) and verify the
 published SHA-256 checksum before installation.
 
-The current stable release is [OycZERO 0010](https://github.com/OyczE/OyczERO/releases/tag/v0010).
-It provides one universal Host/LAN and USB-peripheral/ADB SD-card image plus a
-separate signed update for an already installed OycZERO A/B system. Its
-offline default suite installs the Debian application runtime, official
-APPLaunch `0.6.111` and Store on DATA while the Buildroot core remains
-read-only. WiFiT3 `0.7.2` is available as a separate signed optional package
-for supported external USB wireless adapters.
+The current stable release is
+[OycZERO 0011](https://github.com/OyczE/OyczERO/releases/tag/v0011).
+
+OycZERO 0011 provides:
+
+- one universal Host/LAN and USB-peripheral/ADB SD-card image;
+- a separate signed A/B update for existing installations;
+- the offline Debian runtime `1.1.9`, official APPLaunch `0.6.111` and its
+  matching Application Store on DATA;
+- deterministic Raspberry Pi camera command dependencies for compatible Store
+  applications;
+- signed optional packages such as WiFiT3 `0.7.2`;
+- graphical first installation, early animated boot intro, default MLauncher
+  autostart and a one-second Esc cancellation window;
+- native Debian Shell and application shortcuts on F4 through F7.
 
 Artifact types are intentionally separate:
 
@@ -25,28 +34,82 @@ Artifact types are intentionally separate:
 - `.oyu`: signed A/B operating-system update for a running OycZERO system;
   preserves DATA.
 - `.oyp`: signed OycZERO package stored on DATA.
-- `.deb`: native Debian application component installed inside the DATA runtime;
-  it is not installed directly by the Buildroot host.
+- `.deb`: native Debian component installed inside the DATA runtime; it is not
+  installed directly by the Buildroot host.
 
-See [installation instructions](releases/INSTALL.md), the
-[release layout](releases/README.md), the [changelog](CHANGELOG.md) and
+See the [complete user guide](USAGE.md),
+[installation instructions](releases/INSTALL.md),
+[release history](CHANGELOG.md), [package catalog](packages/README.md) and
 [third-party notices](THIRD-PARTY-NOTICES.md).
 
-## HDMI display and terminal (0010 and later)
+## Quick start
+
+1. Write `oyczero-v0011-install.img.xz` with Raspberry Pi Imager using
+   **Use custom**. A full image erases the existing card and DATA.
+2. Let the graphical ten-step installer finish. Card preparation normally takes
+   about ten minutes and can take longer on a slower SD card. The accepted 0011
+   path from first power-on to a responsive MLauncher took 11 minutes 25 seconds
+   on the original M5Stack 32 GB card. A long step 7 is expected; do not remove
+   power.
+3. Set the owner password when prompted. This password enables root SSH and is
+   also assigned to the Debian `pi` user for `sudo`.
+4. MLauncher starts automatically. Press Esc during the one-second countdown
+   to stay in OycZERO Shell for that boot.
+
+From step 7 onward, the temporary installer recovery login is available; a
+failure screen shows its current IP address. It uses `pi` / `pi` only for the
+active continuation and is removed when installation completes.
+
+The installer first verifies its embedded system, creates the A/B layout,
+writes and reads back both immutable system slots, creates DATA and restarts.
+It then decompresses the offline Debian runtime on DATA, configures its native
+dependencies, installs MLauncher and Store, verifies the result and starts the
+launcher. Relaxing 8-bit music plays while this work continues. Press F or Up
+to raise the volume, X or Down to lower it, and M to mute or unmute playback.
+
+## Keyboard shortcuts
+
+Shortcuts work at the main interactive OycZERO Shell prompt. Applications keep
+their own keyboard handling.
+
+| Key | Action |
+| --- | --- |
+| F1 | Refresh OycZERO system information. |
+| F2 | Open Setup. |
+| F3 | Start, install or repair MLauncher and Store. |
+| F4 | Show Debian quick help. |
+| F5 | Fill the Debian `pi` Shell command. |
+| F6 | Fill the Debian root Shell command. |
+| F7 | Fill the root application-profile command prefix. |
+
+F5 through F7 fill the command line but do not execute it. Review or complete
+the command and press Enter. During MLauncher startup, Esc cancels autostart for
+the current boot. While MLauncher is running, hold Fn+Esc for about two seconds
+to return through the managed cleanup path. For any foreground application,
+SSH recovery can use `oyczero app shutdown`.
+
+## Common commands
+
+```sh
+oyczero info
+oyczero setup
+oyczero version
+oyczero app list
+oyczero app install m5launcher
+oyczero dev --user pi enter
+oyczero update check
+oyczero update install latest
+oyczero update status
+```
+
+The Buildroot host intentionally has no `apt` or `sudo`. Debian commands must
+run through `oyczero dev`; see the [user guide](USAGE.md#native-debian-runtime).
+
+## HDMI display and terminal
 
 Connect and power the HDMI monitor before starting or rebooting CardputerZero.
-The legacy framebuffer backend selects its output geometry during boot and
-cannot reliably detect a monitor connected later. If the display stays blank
-after a hot-plug, leave it connected and reboot OycZERO.
-
-Run `oyczero setup` from the local Shell and select one of these HDMI modes:
-
-- **Off** disables the HDMI service.
-- **Mirror LCD** scales the CardputerZero LCD framebuffer to HDMI.
-- **Terminal** renders an independent Shell on `tty2`; the LCD Shell remains on
-  `tty1`.
-
-The equivalent command-line controls are:
+The legacy framebuffer backend selects output geometry during boot and cannot
+reliably discover a monitor connected later.
 
 ```sh
 oyczero hdmi mirror
@@ -56,32 +119,19 @@ oyczero hdmi status
 oyczero hdmi resolution auto
 oyczero hdmi resolution 1920x1080
 oyczero hdmi font 24
+oyczero hdmi focus
+oyczero hdmi lcd
 ```
 
-Resolution and font changes show a timed preview and are saved only after
-confirmation. Supported resolutions are `auto`, `1280x720` and `1920x1080`;
-supported terminal font preferences are `16`, `24` and `32` px. If the active
-framebuffer is too small for the saved preference, Terminal uses the largest
-smaller supported font without overwriting the preference. `oyczero hdmi
-status` reports both the saved and active font sizes.
-
-Terminal keyboard focus is explicit:
-
-```sh
-oyczero hdmi focus  # move the Cardputer keyboard to the HDMI tty2
-oyczero hdmi lcd    # return the keyboard to the LCD tty1
-```
-
-Typing `exit` inside the HDMI Shell also closes that Shell and returns focus to
-the LCD. Return to the LCD before changing HDMI mode from the local Terminal.
-SSH remains available as the recovery path; use `oyczero hdmi status`,
-`oyczero hdmi lcd` and `/run/oyczero-hdmi.log` to diagnose a blank or failed
-session.
+Resolution and font changes use a timed confirmation. Terminal focus is
+explicit: `focus` moves the Cardputer keyboard to HDMI `tty2`, while `lcd`
+returns it to LCD `tty1`. Typing `exit` in the HDMI Shell also returns focus to
+the LCD.
 
 ## Repository contents
 
 This repository contains public distribution material only: release metadata,
-package metadata, built web content and exported flasher deliverables. OycZERO
+package metadata, documentation and exported flasher deliverables. OycZERO
 source code, tests, build tools, TODO files and implementation plans are not
 published here.
 
