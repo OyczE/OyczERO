@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#080a09">
+    <meta name="description" content="Build a personalized OycZERO installer image locally in your browser.">
+    <title>OycZERO Image Builder</title>
+    <script type="module" crossorigin src="./assets/index-C3kDFZNn.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DkXLmrPJ.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#builder-form">Skip to image builder</a>
+
+    <header class="masthead">
+      <a class="wordmark" href="#" aria-label="OycZERO Image Builder home">
+        <span>Oyc</span><strong>ZERO</strong>
+      </a>
+      <div class="release-status">
+        <span class="status-dot" aria-hidden="true"></span>
+        v0012 provisioning laboratory
+      </div>
+    </header>
+
+    <main id="builder">
+      <section class="intro" aria-labelledby="page-title">
+        <div class="intro-copy">
+          <h1 id="page-title">Build the card once.</h1>
+          <p class="lede">Combine the reviewed OycZERO installer with your owner account, network, packages and boot target. The image stays on this computer; Raspberry Pi Imager still writes and verifies the card.</p>
+        </div>
+        <dl class="artifact-facts">
+          <div><dt>Base</dt><dd>v0012 candidate</dd></div>
+          <div><dt>Assembly</dt><dd>Local browser</dd></div>
+          <div><dt>Card write</dt><dd>Raspberry Pi Imager</dd></div>
+        </dl>
+      </section>
+
+      <aside class="security-boundary" role="note" aria-label="Security boundary">
+        <span class="boundary-mark" aria-hidden="true"></span>
+        <div>
+          <strong>Plaintext provisioning is deliberate.</strong>
+          <p>The custom IMG contains the passwords entered below. OycZERO removes the provisioning records from the SD card after a successful installation, but it cannot remove the IMG saved on this computer.</p>
+        </div>
+      </aside>
+
+      <section class="disk-strip" aria-labelledby="disk-map-title">
+        <div class="disk-heading">
+          <div>
+            <h2 id="disk-map-title">Installer image map</h2>
+            <p>Only the two provisioning windows change. MBR, installer state and payload remain intact.</p>
+          </div>
+          <span class="map-legend"><i aria-hidden="true"></i> Provisioning records</span>
+        </div>
+        <div class="disk-map" role="img" aria-label="MBR, installer state, two provisioning records, boot partition and system payload">
+          <span class="segment segment-mbr">MBR</span>
+          <span class="segment segment-state">STATE</span>
+          <span id="segment-cfg-a" class="segment segment-profile">CFG A</span>
+          <span id="segment-cfg-b" class="segment segment-profile">CFG B</span>
+          <span class="segment segment-boot">BOOT</span>
+          <span class="segment segment-root">SYSTEM PAYLOAD</span>
+        </div>
+        <div class="disk-scale"><span>0</span><span>1 MiB</span><span>257 MiB</span><span>624 MiB</span></div>
+      </section>
+
+      <form class="builder-form" id="builder-form" novalidate>
+        <section class="stage" aria-labelledby="source-title">
+          <div class="stage-index" aria-hidden="true">1</div>
+          <div class="stage-content">
+            <div class="stage-heading">
+              <div>
+                <h2 id="source-title">Choose the reviewed source</h2>
+                <p>Select the v0012 installer candidate and record its published identity.</p>
+              </div>
+              <output id="source-state" class="stage-state">Source required</output>
+            </div>
+
+            <a id="download-release" class="source-choice source-pending" aria-disabled="true">
+              <span class="source-marker" aria-hidden="true">A</span>
+              <span class="choice-copy">
+                <strong id="download-release-title">Download reviewed v0012 image</strong>
+                <small id="download-release-detail">Not published yet. Use the reviewed local file below for hardware acceptance.</small>
+              </span>
+              <span id="download-release-size" class="choice-size">Not published</span>
+            </a>
+
+            <label class="source-choice">
+              <span class="source-marker" aria-hidden="true">B</span>
+              <span class="choice-copy">
+                <strong>Select the installer image</strong>
+                <small>OycZERO seed-v2 .img or .img.xz · processing stays local</small>
+              </span>
+              <span class="file-button">Select file</span>
+              <input id="local-file" class="visually-hidden" type="file" accept=".img,.xz" required>
+            </label>
+
+            <div class="source-identity">
+              <label>
+                Release identity
+                <input id="release-tag" pattern="v[0-9]{4}" required readonly spellcheck="false" autocomplete="off">
+              </label>
+              <label>
+                Source SHA-256
+                <input id="source-sha" pattern="[0-9a-f]{64}" required readonly spellcheck="false" autocomplete="off">
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <section class="stage" aria-labelledby="owner-title">
+          <div class="stage-index" aria-hidden="true">2</div>
+          <div class="stage-content">
+            <div class="stage-heading">
+              <div>
+                <h2 id="owner-title">Set the owner credential</h2>
+                <p>One password is independently hashed for host root and Debian pi during installation.</p>
+              </div>
+              <output id="owner-state" class="stage-state">Required</output>
+            </div>
+
+            <div class="credential-grid">
+              <label>
+                Owner password
+                <input id="owner-password" type="password" required autocomplete="new-password" aria-describedby="owner-note">
+              </label>
+              <label>
+                Confirm owner password
+                <input id="owner-confirmation" type="password" required autocomplete="new-password">
+              </label>
+            </div>
+            <label class="inline-check secret-visibility">
+              <input id="show-owner-password" type="checkbox" aria-controls="owner-password owner-confirmation">
+              Show owner password
+            </label>
+            <p id="owner-note" class="field-note">1–100 UTF-8 bytes. There is no password complexity rule and no default password.</p>
+          </div>
+        </section>
+
+        <section class="stage" aria-labelledby="device-title">
+          <div class="stage-index" aria-hidden="true">3</div>
+          <div class="stage-content">
+            <div class="stage-heading">
+              <div>
+                <h2 id="device-title">Prepare the device</h2>
+                <p>Add an ordinary account, one network and the installation-audio preference.</p>
+              </div>
+              <output id="device-state" class="stage-state">Optional</output>
+            </div>
+
+            <div class="option-stack">
+              <label class="toggle-row">
+                <input id="create-extra-user" type="checkbox">
+                <span>
+                  <strong>Create an additional user</strong>
+                  <small>Ordinary UID/GID 1100 account on host and Debian; no sudo or hardware groups.</small>
+                </span>
+              </label>
+              <fieldset id="extra-user-fields" class="revealed-fields" hidden disabled>
+                <legend>Additional account</legend>
+                <label>
+                  Username
+                  <input id="extra-username" pattern="[a-z_][a-z0-9_-]{0,31}" autocomplete="username">
+                </label>
+                <label>
+                  Password
+                  <input id="extra-password" type="password" autocomplete="new-password">
+                </label>
+                <label>
+                  Confirm password
+                  <input id="extra-confirmation" type="password" autocomplete="new-password">
+                </label>
+                <label class="inline-check secret-visibility full-row">
+                  <input id="show-extra-password" type="checkbox" aria-controls="extra-password extra-confirmation">
+                  Show additional-user password
+                </label>
+              </fieldset>
+
+              <label class="toggle-row">
+                <input id="configure-wifi" type="checkbox">
+                <span>
+                  <strong>Configure Wi-Fi</strong>
+                  <small>One WPA/WPA2-Personal profile. Ethernet preference remains unchanged.</small>
+                </span>
+              </label>
+              <fieldset id="wifi-fields" class="revealed-fields" hidden disabled>
+                <legend>Wi-Fi profile</legend>
+                <label class="span-two">
+                  Network name (SSID)
+                  <input id="wifi-ssid" autocomplete="off">
+                </label>
+                <label class="inline-check field-option full-row">
+                  <input id="wifi-hidden" type="checkbox">
+                  Hidden network
+                </label>
+                <label>
+                  Passphrase
+                  <input id="wifi-passphrase" type="password" autocomplete="new-password">
+                </label>
+                <label>
+                  Confirm passphrase
+                  <input id="wifi-confirmation" type="password" autocomplete="new-password">
+                </label>
+                <label class="inline-check secret-visibility full-row">
+                  <input id="show-wifi-passphrase" type="checkbox" aria-controls="wifi-passphrase wifi-confirmation">
+                  Show Wi-Fi passphrase
+                </label>
+              </fieldset>
+
+              <label class="toggle-row">
+                <input id="audio-muted" type="checkbox">
+                <span>
+                  <strong>Start installer music muted</strong>
+                  <small>M and the existing volume controls remain available throughout installation.</small>
+                </span>
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <section class="stage" aria-labelledby="profile-title">
+          <div class="stage-index" aria-hidden="true">4</div>
+          <div class="stage-content">
+            <div class="stage-heading">
+              <div>
+                <h2 id="profile-title">Choose capacity and software</h2>
+                <p>System slots stay fixed. DATA receives the remaining card capacity.</p>
+              </div>
+              <output id="profile-state" class="stage-state">2 packages</output>
+            </div>
+
+            <div class="profile-grid">
+              <fieldset>
+                <legend>Expected card capacity</legend>
+                <div class="capacity-options">
+                  <label><input type="radio" name="capacity" value="32" checked><span>32</span><small>GiB</small></label>
+                  <label><input type="radio" name="capacity" value="64"><span>64</span><small>GiB</small></label>
+                  <label><input type="radio" name="capacity" value="128"><span>128</span><small>GiB</small></label>
+                  <label><input type="radio" name="capacity" value="256"><span>256</span><small>GiB</small></label>
+                </div>
+              </fieldset>
+
+              <fieldset>
+                <legend>Offline packages</legend>
+                <label class="package-row">
+                  <input type="checkbox" name="package" value="m5launcher" checked>
+                  <span><strong>M5Launcher</strong><small>Application launcher and Store</small></span>
+                </label>
+                <label class="package-row">
+                  <input type="checkbox" name="package" value="wifit3" checked>
+                  <span><strong>WiFiT3</strong><small>Optional wireless assessment package</small></span>
+                </label>
+              </fieldset>
+
+              <label class="autostart-field">
+                Boot target
+                <select id="autostart">
+                  <option value="shell" selected>Shell</option>
+                  <option value="m5launcher">M5Launcher</option>
+                  <option value="wifit3">WiFiT3</option>
+                </select>
+                <small>The target is applied only after all selected packages pass their health checks.</small>
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <section class="stage stage-build" aria-labelledby="build-title">
+          <div class="stage-index" aria-hidden="true">5</div>
+          <div class="stage-content">
+            <div class="stage-heading">
+              <div>
+                <h2 id="build-title">Build the custom image</h2>
+                <p>The browser streams the source directly to your chosen output file.</p>
+              </div>
+              <output id="build-state" class="stage-state">Incomplete</output>
+            </div>
+
+            <label class="plaintext-acknowledgement">
+              <input id="plaintext-ack" type="checkbox" required>
+              <span>
+                <strong>I understand that this IMG contains plaintext passwords.</strong>
+                <small>Anyone with the saved file can read them. Store or delete the file accordingly.</small>
+              </span>
+            </label>
+
+            <div class="build-line">
+              <div class="output-name">
+                <span>Output file</span>
+                <strong id="output-name">oyczero-v0012-custom.img</strong>
+              </div>
+              <button id="build-button" type="submit" disabled>
+                <span>Build custom image</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+              </button>
+            </div>
+
+            <div id="progress-panel" class="progress-panel" hidden>
+              <div class="progress-copy"><span id="progress-label">Preparing image stream</span><span id="progress-value">0 MiB</span></div>
+              <progress id="progress" max="654131200" value="0">0%</progress>
+            </div>
+
+            <p id="result" class="result" role="status" aria-live="polite">Complete the required fields to unlock the local build.</p>
+          </div>
+        </section>
+      </form>
+    </main>
+
+    <footer>
+      <span>OycZERO Image Builder · local processing</span>
+      <span>No raw disk access · no uploaded configuration</span>
+    </footer>
+  </body>
+</html>
