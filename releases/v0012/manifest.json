@@ -1,0 +1,101 @@
+{
+  "schema": 1,
+  "release": "v0012",
+  "draft": false,
+  "build": {
+    "build_id": "20261128T200841Z-g66f8745db3b3",
+    "built_at_utc": "2026-11-28T20:08:41Z",
+    "git_commit": "66f8745db3b35a89e7081b3d682329a36e444a90",
+    "dirty": false,
+    "version": "0012"
+  },
+  "publication_eligible": true,
+  "publication_blockers": [],
+  "artifacts": [
+    {
+      "file": "oyczero-v0012-install.img.xz",
+      "kind": "fresh-install",
+      "profile": "usb-otg-auto-seed-v2",
+      "size": 486309468,
+      "sha256": "838d635484a828c85a2592148f7f1c070cb09b6aab74b07710cbc909ce44b67b",
+      "extracted_size": 654131200,
+      "extracted_sha256": "69c4d853d40a9314fad57e15927af1e49d47bd287cfabdf3c6724ebb83afb5da",
+      "root_bytes": 384647168,
+      "root_sha256": "0e1da6c3d8949c9338a31bdde5f934dcacf9bff9ab17234cfb1ec9e6c5160d1c",
+      "installer_id": "875d1c9cec379ea4e1276a245a9cc8a1",
+      "physical_fresh_install_validated": false
+    },
+    {
+      "file": "oyczero-20261128T200841Z-g66f8745db3b3-update.oyu",
+      "kind": "signed-ab-update",
+      "profile": "data-preserving",
+      "size": 393134496,
+      "sha256": "0705d6b6f6dc6cc6c9990d4b6608ef9453815cc709c5307fe1b0885f7c5751a5",
+      "root_bytes": 384647168,
+      "manifest_files": 368,
+      "signature_verified": true,
+      "payload_hashes_verified": true,
+      "physical_update_validated": false
+    },
+    {
+      "file": "debian-runtime-1.1.9-arm64.oyp",
+      "kind": "signed-optional-runtime",
+      "profile": "debian-trixie-cardputerzero-v0.5-aarch64",
+      "size": 202550024,
+      "sha256": "a62010368d6b22d318331c15885335e1330279430f0a49505e6a70495ba51a4c",
+      "package_id": "debian-runtime",
+      "package_version": "1.1.9",
+      "minimum_os_version": "0008",
+      "signature_verified": true,
+      "payload_hashes_verified": true,
+      "physical_package_validated": true
+    },
+    {
+      "file": "applaunch_0.6.111-oyczero.2_arm64.deb",
+      "kind": "native-debian-application",
+      "profile": "debian-runtime-aarch64",
+      "size": 41242888,
+      "sha256": "e30a0071b3167af402e71856522ceee43f4cc2f719546800804ba8d093f515cb",
+      "package_id": "applaunch",
+      "package_version": "0.6.111-oyczero.2",
+      "suite_lock_verified": true,
+      "physical_runtime_validated": true
+    },
+    {
+      "file": "oyczero-m5market_0.6.111-oyczero.2_arm64.deb",
+      "kind": "native-debian-application",
+      "profile": "debian-runtime-aarch64",
+      "size": 1329004,
+      "sha256": "974d5b63d94718fc4d8cd5c0218897cc952182f8ec541dc49b193ade2704bd9c",
+      "package_id": "oyczero-m5market",
+      "package_version": "0.6.111-oyczero.2",
+      "suite_lock_verified": true,
+      "physical_runtime_validated": true
+    },
+    {
+      "file": "wifit3-0.7.2-arm64.oyp",
+      "kind": "signed-optional-application",
+      "profile": "cardputerzero-v0.5-aarch64",
+      "size": 43338624,
+      "sha256": "5dffc48506e11f37c34bac06032b7b8202180688d11b183bd8edab39f67d7c3e",
+      "package_id": "wifit3",
+      "package_version": "0.7.2",
+      "minimum_os_version": "0010",
+      "upstream_revision": "2a2d91ed908867496c76c470ae143af864b07022",
+      "signature_verified": true,
+      "payload_hashes_verified": true,
+      "physical_package_validated": true
+    }
+  ],
+  "validation": {
+    "host_suite": "1670 tests passed from the exact clean release commit and image; 15 later-stage requirements were deselected",
+    "unified_installer": "the disposable ten-step integration completed successfully",
+    "web_image_builder": "51 focused tests, the production build, Chromium smoke and the opt-in exact-image stream test passed",
+    "signed_update_package": "Ed25519 signature and all 368 payload hashes verified by the production parser",
+    "compressed_installer": "XZ integrity, extracted size and extracted SHA-256 verified",
+    "physical_fresh_install_scope": "the accepted dirty v0012 provisioning candidate completed the custom-image installation and imported owner, Wi-Fi, audio, package and autostart settings; the final clean installer differs only in build identity and the launcher coldplug fix and was not written to a second card",
+    "physical_update_scope": "the launcher coldplug fix was installed through a signed dirty A/B update, committed on slot B and verified after a real reboot; MLauncher was visible and keyboard-responsive, while the exact clean update was host-verified rather than installed",
+    "application_runtime": "the accepted hardware system ran Debian runtime 1.1.9 and APPLaunch/Store 0.6.111 as pi",
+    "qemu_scope": "ARM64 user mode and disposable loop devices on the host kernel; not full CM0 or peripheral emulation"
+  }
+}

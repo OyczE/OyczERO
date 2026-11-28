@@ -12,9 +12,9 @@ Download numbered releases from
 published SHA-256 checksum before installation.
 
 The current stable release is
-[OycZERO 0011](https://github.com/OyczE/OyczERO/releases/tag/v0011).
+[OycZERO 0012](https://github.com/OyczE/OyczERO/releases/tag/v0012).
 
-OycZERO 0011 provides:
+OycZERO 0012 provides:
 
 - one universal Host/LAN and USB-peripheral/ADB SD-card image;
 - a separate signed A/B update for existing installations;
@@ -26,6 +26,13 @@ OycZERO 0011 provides:
 - graphical first installation, early animated boot intro, default MLauncher
   autostart and a one-second Esc cancellation window;
 - native Debian Shell and application shortcuts on F4 through F7.
+- [OycZERO Config](https://oycze.github.io/OyczERO/OycZERO-Config/) for
+  assembling a customized installer locally in a modern browser;
+- first-boot owner, optional user, Wi-Fi, audio, package and autostart
+  provisioning without sending the selected image or entered credentials to a
+  server;
+- early volatile identity creation so udev assigns the correct MLauncher
+  framebuffer and keyboard permissions on every cold boot.
 
 Artifact types are intentionally separate:
 
@@ -44,17 +51,22 @@ See the [complete user guide](USAGE.md),
 
 ## Quick start
 
-1. Write `oyczero-v0011-install.img.xz` with Raspberry Pi Imager using
+1. Write `oyczero-v0012-install.img.xz` with Raspberry Pi Imager using
    **Use custom**. A full image erases the existing card and DATA.
 2. Let the graphical ten-step installer finish. Card preparation normally takes
-   about ten minutes and can take longer on a slower SD card. The accepted 0011
-   path from first power-on to a responsive MLauncher took 11 minutes 25 seconds
-   on the original M5Stack 32 GB card. A long step 7 is expected; do not remove
-   power.
+   about ten minutes and can take longer on a slower SD card. A long step 7 is
+   expected; do not remove power.
 3. Set the owner password when prompted. This password enables root SSH and is
    also assigned to the Debian `pi` user for `sudo`.
 4. MLauncher starts automatically. Press Esc during the one-second countdown
    to stay in OycZERO Shell for that boot.
+
+To preconfigure a private image, open
+[OycZERO Config](https://oycze.github.io/OyczERO/OycZERO-Config/), download and
+select the reviewed v0012 `.img.xz`, choose the required settings and save the
+generated `.img`. All assembly happens locally. Write that generated file with
+Raspberry Pi Imager. It contains the entered password and Wi-Fi credentials
+until the first successful boot, so keep it private and delete it after use.
 
 From step 7 onward, the temporary installer recovery login is available; a
 failure screen shows its current IP address. It uses `pi` / `pi` only for the

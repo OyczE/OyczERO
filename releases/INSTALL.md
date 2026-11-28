@@ -12,13 +12,12 @@ card and complete write verification.
 This operation replaces the partition table and erases existing DATA, including
 settings, credentials and user files. Back up required files first.
 
-The OycZERO 0011 installer presents ten graphical stages covering card
+The OycZERO 0012 installer presents ten graphical stages covering card
 preparation, both system slots, DATA, verification and the offline application
-suite. Allow about ten minutes for provisioning and longer on a slow card. The
-accepted 0011 path to a responsive MLauncher took 11 minutes 25 seconds on the
-original M5Stack 32 GB card. Steps 7 through 9 can take several minutes while
-the offline Debian runtime is decompressed on DATA, native dependencies are
-configured and MLauncher plus Store are installed. Do not remove power.
+suite. Allow about ten minutes for provisioning and longer on a slow card.
+Steps 7 through 9 can take several minutes while the offline Debian runtime is
+decompressed on DATA, native dependencies are configured and MLauncher plus
+Store are installed. Do not remove power.
 
 The earlier stages verify the embedded payload, create BOOT, both immutable
 system slots and DATA, write and read back both slots, then restart into the
@@ -54,6 +53,21 @@ uses it for root SSH and for the Debian `pi` user, including `sudo`. There is no
 permanent default password and no minimum complexity rule beyond one to 100
 bytes without line breaks.
 
+## Customized browser image
+
+[OycZERO Config](https://oycze.github.io/OyczERO/OycZERO-Config/) assembles a
+custom v0012 image locally in a modern Chromium-family browser. Download the
+reviewed `.img.xz`, select it on the page, verify the embedded release identity
+and choose the owner, optional user, Wi-Fi, installer-audio, package and
+autostart settings. Save the generated `.img`, then write and verify it with
+Raspberry Pi Imager.
+
+The page does not upload the selected image or form values and does not write
+an SD card directly. The generated image intentionally contains the entered
+password and Wi-Fi credentials until the first successful boot. Keep it
+private, do not share it and delete it after installation. Its fixed raw size
+is determined by the reviewed installer, not by the destination SD card.
+
 ## Updating an installed system
 
 A file named `oyczero-BUILD-ID-update.oyu` is not a disk image and must not be
@@ -82,7 +96,7 @@ They are separate from both the initial-install image and the `.oyu` operating-
 system update. Follow the package's release notes for compatibility and install
 commands.
 
-OycZERO 0011 fresh installations include an offline DATA-resident default
+OycZERO 0012 fresh installations include an offline DATA-resident default
 suite: Debian runtime `1.1.9`, official APPLaunch `0.6.111` and its matching
 Store. The same immutable release assets can repair or complete an updated
 system without replacing DATA.
@@ -97,7 +111,7 @@ The signed `.oyp` initializes the Debian runtime. The two published `.deb`
 assets are verified against the release lock and installed inside that runtime;
 they are not passed directly to `oyczero app install`. MLauncher is the default
 startup target. Esc during its startup countdown keeps Shell for the current
-boot. OycZERO 0011 uses a one-second startup countdown. Holding Fn+Esc for
+boot. OycZERO 0012 uses a one-second startup countdown. Holding Fn+Esc for
 about two seconds exits the running launcher through the host-owned cleanup
 path.
 

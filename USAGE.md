@@ -1,6 +1,6 @@
 # OycZERO user guide
 
-This guide describes OycZERO 0011 on CardputerZero v0.5.
+This guide describes OycZERO 0012 on CardputerZero v0.5.
 
 ## System model
 
@@ -32,8 +32,6 @@ The graphical installer uses ten stages:
 10. Finalizing OycZERO
 
 Allow about ten minutes for the provisioning stages and longer for a slow SD
-card. In 0011 acceptance testing, the complete path from first power-on to a
-responsive MLauncher took 11 minutes 25 seconds on the original M5Stack 32 GB
 card. Step 7 is normally the longest visible stage. Continued progress messages
 and music mean the installer is still working; do not remove power.
 
@@ -76,6 +74,20 @@ On the first normal boot, OycZERO requires an owner password before starting
 MLauncher. The same password enables root SSH and the Debian `pi` account for
 `sudo`. Passwords may contain one to 100 bytes except line breaks; OycZERO does
 not require a complexity policy and stores only password hashes.
+
+### OycZERO Config
+
+[OycZERO Config](https://oycze.github.io/OyczERO/OycZERO-Config/) can prepare a
+private v0012 image before it is written to the SD card. Download and select the
+reviewed v0012 `.img.xz`, confirm its embedded identity and choose the owner
+password, optional user, Wi-Fi, installer mute, offline packages and final
+autostart target. The browser saves a raw `.img`; write and verify that file
+with Raspberry Pi Imager.
+
+Image decompression, validation and record injection happen locally. The page
+does not upload the selected image or form values. The generated image contains
+the entered password and Wi-Fi credentials until first boot imports and erases
+both provisioning records. Keep the file private and delete it after use.
 
 ## Normal boot and application ownership
 

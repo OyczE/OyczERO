@@ -3,6 +3,24 @@
 This changelog lists numbered public releases. Prereleases are marked
 explicitly; version 0002 was an internal test and was not published.
 
+## 0012 — 2026-11-28
+
+[Release v0012](https://github.com/OyczE/OyczERO/releases/tag/v0012)
+
+- Added OycZERO Config, a static local browser tool for customizing the reviewed
+  image without uploading the image or credentials.
+- Added schema-2 first-boot provisioning for the owner password, one optional
+  user, visible or hidden Wi-Fi, initial audio mute, offline packages and final
+  Shell, MLauncher or WiFiT3 autostart.
+- Added duplicate bounded provisioning records with checksums, read-back,
+  transactional import, recovery-safe ordering and post-import erasure.
+- Reconstructed host and Debian identities from persistent DATA while keeping
+  the immutable Buildroot root read-only.
+- Fixed MLauncher framebuffer and keyboard access after a real boot by creating
+  the volatile group database before udev coldplug.
+- Retained Debian runtime `1.1.9`, APPLaunch/Store `0.6.111`, WiFiT3 `0.7.2`,
+  signed A/B updates and the ten-stage offline installer.
+
 ## 0011 — 2026-11-27
 
 [Release v0011](https://github.com/OyczE/OyczERO/releases/tag/v0011)
